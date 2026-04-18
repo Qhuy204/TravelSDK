@@ -1,6 +1,6 @@
 # TravelSDK Documentation
 
-TravelSDK is a powerful Python library that provides a unified API for searching train, bus, and flight tickets in Vietnam. It is specifically designed for AI Agents, Chatbots, and RAG systems, providing standardized output through Pydantic models.
+TravelSDK is a Python library that unifies access to train, bus, and flight search across Vietnam into a single, consistent API. It transforms raw travel data into structured Pydantic models, making it easier to integrate into backend services, data pipelines, or intelligent applications such as chatbots. By abstracting fragmented data sources, TravelSDK helps developers build travel-related features faster and more reliably.
 
 > [!CAUTION]
 > **Disclaimer**: This is an unofficial SDK and is not affiliated with or endorsed by Vexere. This project uses publicly accessible endpoints and is intended for educational purposes only. Use at your own risk.
@@ -12,6 +12,7 @@ TravelSDK is a powerful Python library that provides a unified API for searching
 To get started, initialize the `TravelClient` to manage token authentication and HTTP connections.
 
 ### Parameters
+
 ```python
 from travel import TravelClient
 
@@ -23,6 +24,7 @@ client = TravelClient(
 ```
 
 It is highly recommended to use the client as an async context manager to ensure proper resource cleanup:
+
 ```python
 async with TravelClient() as client:
     # Perform API calls here
@@ -36,7 +38,9 @@ async with TravelClient() as client:
 All search functions are asynchronous and support flexible location formats such as city names, IATA codes, or train station codes.
 
 ### 2.1 Train Search
+
 Use the `search_trains` function to retrieve data from Vietnam Railways (VNR):
+
 ```python
 train_tickets = await client.search_trains(
     from_location="Hanoi",
@@ -48,7 +52,9 @@ train_tickets = await client.search_trains(
 ```
 
 ### 2.2 Bus Search
+
 Search through a network of hundreds of bus operators:
+
 ```python
 bus_tickets = await client.search_buses(
     from_location="Hanoi",
@@ -58,7 +64,9 @@ bus_tickets = await client.search_buses(
 ```
 
 ### 2.3 Flight Search
+
 Search for tickets from all domestic airlines:
+
 ```python
 flight_tickets = await client.search_flights(
     from_location="HAN",
@@ -69,7 +77,9 @@ flight_tickets = await client.search_flights(
 ```
 
 ### 2.4 Unified Search
+
 The `search_all` function performs simultaneous searches for all three transportation modes:
+
 ```python
 result = await client.search_all("Hanoi", "Saigon", "2026-04-20")
 ```
@@ -79,6 +89,7 @@ result = await client.search_all("Hanoi", "Saigon", "2026-04-20")
 ## 3. Data Structure
 
 ### 3.1 TrainTicket
+
 - `train_number`: Train code (SE1, SE3, etc.)
 - `min_price`: Current lowest fare
 - `cars`: Detailed carriage info, seat types, and availability
@@ -86,12 +97,14 @@ result = await client.search_all("Hanoi", "Saigon", "2026-04-20")
 - `images`: Illustration links for train cars
 
 ### 3.2 BusTicket
+
 - `operator`: Operator name and code
 - `bus_type`: Vehicle type (Limousine, Sleeper, etc.)
 - `rating`: Average rating (0-5)
 - `pickup_points`, `dropoff_points`: List of stop points with GPS coordinates
 
 ### 3.3 FlightTicket
+
 - `airline_name`: Airline company name
 - `flight_number`: Flight number
 - `airplane_name`: Aircraft model (Airbus, Boeing, etc.)
@@ -103,14 +116,18 @@ result = await client.search_all("Hanoi", "Saigon", "2026-04-20")
 ## 4. Utilities and Calendars
 
 ### 4.1 Monthly Calendar
+
 Retrieve price and availability for an entire month to help AI suggest the cheapest travel dates:
+
 ```python
 # Example for train calendar
 calendar = await client.get_train_calendar("Hanoi", "Saigon", month=4, year=2026)
 ```
 
 ### 4.2 Location Resolution
+
 The SDK automatically resolves location names to internal IDs, but you can also do it manually:
+
 ```python
 # Resolve airport by name or IATA code
 airport = client.resolve_flight_airport("Tan Son Nhat") 
@@ -131,11 +148,11 @@ async def main():
     async with TravelClient() as client:
         # 1. Multi-modal parallel search
         result = await client.search_all("Hanoi", "Saigon", "2026-04-20")
-        
+      
         # 2. Extract summary
         summary = result.summary()
         print(f"Summary for AI: {summary}")
-        
+      
         # 3. Get cheapest option
         cheapest = result.cheapest()
         print(f"Cheapest: {cheapest.min_price} VND")
@@ -152,6 +169,7 @@ if __name__ == "__main__":
 ## 6. Response Data Samples
 
 ### Train
+
 ```json
 {
   "train_number": "SE9",
@@ -162,6 +180,7 @@ if __name__ == "__main__":
 ```
 
 ### Bus
+
 ```json
 {
   "operator": { "name": "FUTA HA SON" },
@@ -172,6 +191,7 @@ if __name__ == "__main__":
 ```
 
 ### Flight
+
 ```json
 {
   "airline_name": "Bamboo Airways",
