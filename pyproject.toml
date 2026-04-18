@@ -7,7 +7,7 @@ name = "travel-sdk"
 version = "0.1.0"
 description = "Unified Python SDK for Vietnam Transportation (Flight, Train, Bus). Enriched data for RAG & AI Agents."
 authors = [
-    {name = "Quy Huy", email = "qhuy204@github.com"},
+    {name = "Qhuy204"},
 ]
 license = "MIT"
 readme = "README.md"
