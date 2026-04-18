@@ -1,61 +1,64 @@
 # TravelSDK Documentation
 
-TravelSDK là thư viện Python cung cấp giao diện lập trình hợp nhất cho việc tìm kiếm thông tin vé tàu hỏa, xe khách và máy bay tại Việt Nam. Thư viện được tối ưu cho các hệ thống AI Agent, Chatbot và RAG nhờ vào việc chuẩn hóa dữ liệu đầu ra dưới dạng Pydantic models.
+TravelSDK is a powerful Python library that provides a unified API for searching train, bus, and flight tickets in Vietnam. It is specifically designed for AI Agents, Chatbots, and RAG systems, providing standardized output through Pydantic models.
+
+> [!CAUTION]
+> **Disclaimer**: This is an unofficial SDK and is not affiliated with or endorsed by Vexere. This project uses publicly accessible endpoints and is intended for educational purposes only. Use at your own risk.
 
 ---
 
-## 1. Khởi tạo và Cấu hình
+## 1. Initialization and Configuration
 
-Để bắt đầu, bạn cần khởi tạo `TravelClient` để quản lý việc xác thực token và kết nối HTTP.
+To get started, initialize the `TravelClient` to manage token authentication and HTTP connections.
 
-### Tham số khởi tạo
+### Parameters
 ```python
 from travel import TravelClient
 
 client = TravelClient(
-    timeout=30.0,       # Thời gian chờ mặc định
-    max_retries=2,      # Số lần thử lại khi lỗi mạng
-    verbose=False       # Log debug chi tiết
+    timeout=30.0,       # Request timeout in seconds
+    max_retries=2,      # Number of retries for network issues
+    verbose=False       # Enable detailed debug logs
 )
 ```
 
-Bạn nên sử dụng async context manager để đảm bảo tài nguyên được giải phóng đúng cách:
+It is highly recommended to use the client as an async context manager to ensure proper resource cleanup:
 ```python
 async with TravelClient() as client:
-    # Thực hiện các cuộc gọi API ở đây
+    # Perform API calls here
     ...
 ```
 
 ---
 
-## 2. Hướng dẫn Tìm kiếm
+## 2. Search Guide
 
-Tất cả các hàm tìm kiếm đều là async và hỗ trợ định dạng địa điểm linh hoạt như tên thành phố, mã IATA hoặc mã ga tàu.
+All search functions are asynchronous and support flexible location formats such as city names, IATA codes, or train station codes.
 
-### 2.1 Tìm kiếm Tàu hỏa
-Sử dụng hàm `search_trains` để lấy thông tin từ Đường sắt Việt Nam:
+### 2.1 Train Search
+Use the `search_trains` function to retrieve data from Vietnam Railways (VNR):
 ```python
 train_tickets = await client.search_trains(
-    from_location="Hà Nội",
-    to_location="Sài Gòn",
+    from_location="Hanoi",
+    to_location="Saigon",
     date="2026-04-20",
     passengers=1,
     sort="fare:asc"
 )
 ```
 
-### 2.2 Tìm kiếm Xe khách
-Sử dụng hàm `search_buses` để truy cập mạng lưới hàng trăm nhà xe:
+### 2.2 Bus Search
+Search through a network of hundreds of bus operators:
 ```python
 bus_tickets = await client.search_buses(
-    from_location="Hà Nội",
-    to_location="Đà Nẵng",
+    from_location="Hanoi",
+    to_location="Da Nang",
     date="2026-04-20"
 )
 ```
 
-### 2.3 Tìm kiếm Máy bay
-Sử dụng hàm `search_flights` cho các hãng hàng không nội địa:
+### 2.3 Flight Search
+Search for tickets from all domestic airlines:
 ```python
 flight_tickets = await client.search_flights(
     from_location="HAN",
@@ -65,59 +68,60 @@ flight_tickets = await client.search_flights(
 )
 ```
 
-### 2.4 Tìm kiếm Tổng hợp
-Hàm `search_all` thực hiện tìm kiếm đồng thời cả 3 phương tiện:
+### 2.4 Unified Search
+The `search_all` function performs simultaneous searches for all three transportation modes:
 ```python
-result = await client.search_all("Hà Nội", "Sài Gòn", "2026-04-20")
+result = await client.search_all("Hanoi", "Saigon", "2026-04-20")
 ```
 
 ---
 
-## 3. Cấu trúc Dữ liệu
+## 3. Data Structure
 
 ### 3.1 TrainTicket
-- `train_number`: Mã tàu SE1, SE3...
-- `min_price`: Giá vé thấp nhất hiện tại
-- `cars`: Chi tiết từng toa, loại ghế và chỗ trống
-- `utilities`: Tiện ích như Wifi, Điều hòa, Ổ cắm
-- `images`: Link ảnh minh họa toa tàu
+- `train_number`: Train code (SE1, SE3, etc.)
+- `min_price`: Current lowest fare
+- `cars`: Detailed carriage info, seat types, and availability
+- `utilities`: Amenities like Wifi, Air conditioning, Power outlets
+- `images`: Illustration links for train cars
 
 ### 3.2 BusTicket
-- `operator`: Tên và mã nhà xe
-- `bus_type`: Loại xe Limousine, Giường nằm...
-- `rating`: Điểm đánh giá trung bình
-- `pickup_points`, `dropoff_points`: Danh sách các điểm dừng kèm tọa độ GPS
+- `operator`: Operator name and code
+- `bus_type`: Vehicle type (Limousine, Sleeper, etc.)
+- `rating`: Average rating (0-5)
+- `pickup_points`, `dropoff_points`: List of stop points with GPS coordinates
 
 ### 3.3 FlightTicket
-- `airline_name`: Tên hãng hàng không
-- `flight_number`: Số hiệu chuyến bay
-- `airplane_name`: Loại máy bay Airbus, Boeing...
-- `baggage_info`: Chi tiết hành lý xách tay và ký gửi
-- `is_non_stop`: Trạng thái bay thẳng hoặc nối chuyến
+- `airline_name`: Airline company name
+- `flight_number`: Flight number
+- `airplane_name`: Aircraft model (Airbus, Boeing, etc.)
+- `baggage_info`: Carry-on and checked baggage details
+- `is_non_stop`: Boolean indicating a direct flight
 
 ---
 
-## 4. Tiện ích và Tra cứu lịch
+## 4. Utilities and Calendars
 
-### 4.1 Tra cứu Lịch theo tháng
-Lấy thông tin giá vé và số lượng chuyến trong một tháng để AI gợi ý ngày đi rẻ nhất:
+### 4.1 Monthly Calendar
+Retrieve price and availability for an entire month to help AI suggest the cheapest travel dates:
 ```python
-# Ví dụ lấy lịch tàu hỏa
-calendar = await client.get_train_calendar("Hà Nội", "Sài Gòn", month=4, year=2026)
+# Example for train calendar
+calendar = await client.get_train_calendar("Hanoi", "Saigon", month=4, year=2026)
 ```
 
-### 4.2 Xử lý địa điểm
-SDK tự động chuyển đổi tên địa điểm sang mã code tương ứng:
+### 4.2 Location Resolution
+The SDK automatically resolves location names to internal IDs, but you can also do it manually:
 ```python
-# Tìm sân bay theo tên hoặc mã IATA
-airport = client.resolve_flight_airport("tân sơn nhất") 
-# Tìm vùng xe khách
-region = client.resolve_bus_region("hồ chí minh")
+# Resolve airport by name or IATA code
+airport = client.resolve_flight_airport("Tan Son Nhat") 
+
+# Resolve bus region ID
+region = client.resolve_bus_region("Ho Chi Minh")
 ```
 
 ---
 
-## 5. Mã mẫu đầy đủ
+## 5. Full Code Example
 
 ```python
 import asyncio
@@ -125,18 +129,18 @@ from travel import TravelClient
 
 async def main():
     async with TravelClient() as client:
-        # 1. Tìm kiếm tổng hợp
-        result = await client.search_all("Hà Nội", "Sài Gòn", "2026-04-20")
+        # 1. Multi-modal parallel search
+        result = await client.search_all("Hanoi", "Saigon", "2026-04-20")
         
-        # 2. Lấy thông tin tóm tắt
+        # 2. Extract summary
         summary = result.summary()
         print(f"Summary for AI: {summary}")
         
-        # 3. Lấy vé rẻ nhất
+        # 3. Get cheapest option
         cheapest = result.cheapest()
-        print(f"Rẻ nhất: {cheapest.min_price} VND")
+        print(f"Cheapest: {cheapest.min_price} VND")
 
-        # 4. Tra cứu lịch bay
+        # 4. Fetch flight calendar
         calendar = await client.get_flight_calendar("HAN", "SGN", 5, 2026)
 
 if __name__ == "__main__":
@@ -145,25 +149,25 @@ if __name__ == "__main__":
 
 ---
 
-## 6. Mẫu Dữ liệu Phản hồi
+## 6. Response Data Samples
 
 ### Train
 ```json
 {
   "train_number": "SE9",
   "min_price": 1055000,
-  "utilities": ["Điều hòa", "Ổ cắm điện"],
-  "cars": [{"car_number": "1", "car_type": "Ngồi mềm"}]
+  "utilities": ["Air conditioning", "Power outlets"],
+  "cars": [{"car_number": "1", "car_type": "Soft Seat"}]
 }
 ```
 
 ### Bus
 ```json
 {
-  "operator": { "name": "FUTA HÀ SƠN" },
-  "bus_type": "Limousine 34 chỗ",
+  "operator": { "name": "FUTA HA SON" },
+  "bus_type": "Limousine 34",
   "rating": 4.8,
-  "policies": ["Có thể hoàn hủy vé"]
+  "policies": ["Refundable"]
 }
 ```
 
@@ -172,10 +176,7 @@ if __name__ == "__main__":
 {
   "airline_name": "Bamboo Airways",
   "airplane_name": "Airbus A320",
-  "baggage_info": "7kg xách tay | 10kg ký gửi",
-  "policies": ["Được phép hoàn vé", "Được phép đổi vé"]
+  "baggage_info": "7kg carry-on | 10kg checked",
+  "policies": ["Refundable", "Changeable"]
 }
 ```
-
----
-*Bản quyền © 2026 TravelSDK Team. Tài liệu dành cho mục đích tích hợp kỹ thuật.*
