@@ -2,6 +2,12 @@
 
 All notable changes to the **TravelSDK** project will be documented in this file.
 
+## [0.1.4] - 2026-04-19
+
+### Improved
+- **English Documentation**: Full README rewritten in English for a broader developer audience.
+- **Version Alignment**: Fixed `pyproject.toml` version mismatch that was causing PyPI `400 File already exists` upload errors on CI.
+
 ## [0.1.3] - 2026-04-19
 
 ### Improved
