@@ -52,31 +52,45 @@ class TokenManager:
         return self.bearer_header
 
     async def _acquire(self, client: httpx.AsyncClient) -> None:
-        """Acquire a new token from /getToken."""
-        logger.debug("Acquiring new Travel token...")
-        try:
-            response = await client.post(
-                GET_TOKEN_URL,
-                headers={
-                    **DEFAULT_HEADERS,
-                    # Token endpoint uses same-origin
-                    "sec-fetch-site": "same-origin",
-                },
-            )
-            response.raise_for_status()
-            data = response.json()
-            self._token = TokenResponse(**data)
-            self._acquired_at = time.time()
-            logger.debug(
-                f"Token acquired. Expires in {self._token.expires_in}s. "
-                f"Type: {self._token.token_type}"
-            )
-        except httpx.HTTPStatusError as e:
-            logger.error(f"Failed to acquire token: {e.response.status_code} {e.response.text}")
-            raise
-        except Exception as e:
-            logger.error(f"Token acquisition error: {e}")
-            raise
+        """Acquire or refresh the Travel token."""
+        for attempt in range(2): # Max 2 attempts: refresh, then brand new
+            payload = {}
+            if self._token and self._token.refresh_token and attempt == 0:
+                logger.debug("Attempting to refresh Travel token...")
+                payload = {"refresh_token": self._token.refresh_token, "grant_type": "refresh_token"}
+            else:
+                logger.debug("Acquiring new Travel token...")
+
+            try:
+                response = await client.post(
+                    GET_TOKEN_URL,
+                    json=payload if payload else None,
+                    headers={
+                        **DEFAULT_HEADERS,
+                        "sec-fetch-site": "same-origin",
+                    },
+                )
+                response.raise_for_status()
+                data = response.json()
+                self._token = TokenResponse(**data)
+                self._acquired_at = time.time()
+                logger.debug(
+                    f"Token {'refreshed' if payload else 'acquired'}. "
+                    f"Expires in {self._token.expires_in}s."
+                )
+                return # Success!
+            except httpx.HTTPStatusError as e:
+                # If refresh fails on first attempt, clear token and loop to brand new acquisition
+                if payload and attempt == 0 and e.response.status_code in (400, 401):
+                    logger.warning("Refresh failed, acquiring new token instead...")
+                    self._token = None
+                    continue # Try again with a clean state
+                
+                logger.error(f"Failed to acquire token: {e.response.status_code} {e.response.text}")
+                raise
+            except Exception as e:
+                logger.error(f"Token acquisition error: {e}")
+                raise
 
     def invalidate(self) -> None:
         """Force token refresh on next request."""

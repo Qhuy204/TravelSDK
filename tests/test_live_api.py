@@ -1,28 +1,11 @@
-"""
-Integration test script for TravelSDK.
-Tests all endpoints with live API calls.
-
-Run: python tests/test_live_api.py
-"""
-
-import asyncio
-import sys
+import pytest
 import json
 import logging
-from pathlib import Path
 
-# Disable excessive logging from internal modules and httpx
+# Disable excessive logging
 logging.getLogger("httpx").setLevel(logging.WARNING)
 logging.getLogger("travel").setLevel(logging.WARNING)
 
-# Fix Windows console encoding
-if sys.platform == "win32":
-    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
-    sys.stderr.reconfigure(encoding="utf-8", errors="replace")
-
-sys.path.insert(0, str(Path(__file__).parent.parent))
-
-from travel import TravelClient
 from travel.locations import resolve_train_station, resolve_flight_airport, resolve_bus_region
 
 # ─── Config ───────────────────────────────────────────────────────────────────
@@ -65,7 +48,8 @@ def dump(label: str, obj, max_keys: int = 10):
 
 # ─── Test Groups ──────────────────────────────────────────────────────────────
 
-async def test_auth(client: TravelClient):
+@pytest.mark.asyncio
+async def test_auth(client):
     hr("1. Authentication")
     try:
         # Token should already be acquired during __aenter__
@@ -76,6 +60,7 @@ async def test_auth(client: TravelClient):
         fail(f"Auth error: {e}")
 
 
+@pytest.mark.asyncio
 async def test_location_resolver():
     hr("2. Location Resolver")
 
@@ -114,7 +99,8 @@ async def test_location_resolver():
                 fail(f"Bus   '{query}' → NOT FOUND")
 
 
-async def test_train_search(client: TravelClient):
+@pytest.mark.asyncio
+async def test_train_search(client):
     hr("3. Train Search (live)")
     print(f"  Route: {FROM_CITY} → {TO_CITY}  |  Date: {TEST_DATE}")
     try:
@@ -167,7 +153,8 @@ async def test_train_search(client: TravelClient):
         import traceback; traceback.print_exc()
 
 
-async def test_flight_search(client: TravelClient):
+@pytest.mark.asyncio
+async def test_flight_search(client):
     hr("4. Flight Search (live)")
     print(f"  Route: HAN → SGN  |  Date: {TEST_DATE}")
     try:
@@ -203,7 +190,8 @@ async def test_flight_search(client: TravelClient):
         import traceback; traceback.print_exc()
 
 
-async def test_bus_search(client: TravelClient):
+@pytest.mark.asyncio
+async def test_bus_search(client):
     hr("5. Bus Search (live)")
     # Use Hanoi → Da Nang (shorter route, more likely to have buses)
     from_bus = "Hà Nội"
@@ -250,7 +238,8 @@ async def test_bus_search(client: TravelClient):
         import traceback; traceback.print_exc()
 
 
-async def test_train_calendar(client: TravelClient):
+@pytest.mark.asyncio
+async def test_train_calendar(client):
     hr("6. Train Calendar (live)")
     print(f"  Route: {FROM_CITY} → {TO_CITY}  |  Tháng 4/2026")
     try:
@@ -276,7 +265,8 @@ async def test_train_calendar(client: TravelClient):
         import traceback; traceback.print_exc()
 
 
-async def test_flight_calendar(client: TravelClient):
+@pytest.mark.asyncio
+async def test_flight_calendar(client):
     hr("7. Flight Calendar (live)")
     print(f"  Route: HAN → SGN  |  Tháng 4/2026")
     try:
@@ -302,7 +292,8 @@ async def test_flight_calendar(client: TravelClient):
         import traceback; traceback.print_exc()
 
 
-async def test_search_all(client: TravelClient):
+@pytest.mark.asyncio
+async def test_search_all(client):
     hr("8. search_all() - Parallel Search")
     print(f"  Route: {FROM_CITY} → {TO_CITY}  |  Date: {TEST_DATE}")
     try:
@@ -343,7 +334,8 @@ async def test_search_all(client: TravelClient):
         import traceback; traceback.print_exc()
 
 
-async def test_token_refresh(client: TravelClient):
+@pytest.mark.asyncio
+async def test_token_refresh(client):
     hr("9. Token Auto-Refresh")
     try:
         # Force invalidate and re-acquire
@@ -355,31 +347,4 @@ async def test_token_refresh(client: TravelClient):
         fail(f"Token refresh error: {e}")
 
 
-# ─── Main Runner ──────────────────────────────────────────────────────────────
-
-async def main():
-    print("=" * 60)
-    print("   TravelSDK — Integration Test Suite")
-    print(f"   Date: {TEST_DATE}")
-    print("=" * 60)
-
-    # Non-client tests first
-    await test_location_resolver()
-
-    # Client tests
-    async with TravelClient(verbose=False) as client:
-        await test_auth(client)
-        await test_train_search(client)
-        await test_flight_search(client)
-        await test_bus_search(client)
-        await test_train_calendar(client)
-        await test_flight_calendar(client)
-        await test_search_all(client)
-        await test_token_refresh(client)
-
-    hr()
-    print("\n🎉 Integration tests hoàn tất!\n")
-
-
-if __name__ == "__main__":
-    asyncio.run(main())
+# Standalone runner logic removed in favor of pytest.

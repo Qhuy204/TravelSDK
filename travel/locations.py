@@ -22,6 +22,9 @@ _DATA_DIR = os.path.join(os.path.dirname(__file__), "data")
 _DB_PATH = os.path.join(_DATA_DIR, "all_locations.json")
 _LOCATIONS_DB = {"provinces": [], "districts": [], "airports": [], "train_stations": []}
 
+AREA_TYPE_PROVINCE = "3"
+AREA_TYPE_DISTRICT = "5"
+
 try:
     if os.path.exists(_DB_PATH):
         with open(_DB_PATH, "r", encoding="utf-8") as f:
@@ -75,13 +78,18 @@ def resolve_train_station(query: str) -> Optional[dict]:
             }
 
     # Direct key match in constants
-    if q in TRAIN_STATIONS:
-        return TRAIN_STATIONS[q]
-    
-    # Fuzzy match logic simplified for now
+    # Fuzzy match logic using difflib
+    station_terms = {}
     for key, info in TRAIN_STATIONS.items():
-        if q == _normalize(info["name"]):
-            return info
+        # Terms: key, name, aliases
+        station_terms[key] = info
+        station_terms[_normalize(info["name"])] = info
+        for alias in info.get("aliases", []):
+            station_terms[_normalize(alias)] = info
+            
+    matches = difflib.get_close_matches(q, list(station_terms.keys()), n=1, cutoff=0.7)
+    if matches:
+        return station_terms[matches[0]]
             
     return None
 
@@ -106,12 +114,23 @@ def resolve_flight_airport(query: str) -> Optional[dict]:
                 "region_id": a.get("province_id")
             }
             
-    # Search by city name
+    # Search by city name or airport name
+    airport_terms = {}
     for iata, info in FLIGHT_AIRPORTS.items():
-        if q == _normalize(info["city"]) or q == _normalize(info["name"]):
-            result = info.copy()
-            result["iata"] = iata
-            return result
+        # Add primary names
+        airport_terms[_normalize(info["city"])] = iata
+        airport_terms[_normalize(info["name"])] = iata
+        # Add aliases
+        for alias in info.get("aliases", []):
+            airport_terms[_normalize(alias)] = iata
+
+    # Fuzzy match
+    matches = difflib.get_close_matches(q, list(airport_terms.keys()), n=1, cutoff=0.7)
+    if matches:
+        iata = airport_terms[matches[0]]
+        info = FLIGHT_AIRPORTS[iata].copy()
+        info["iata"] = iata
+        return info
             
     return None
 
@@ -125,14 +144,31 @@ def resolve_bus_region(query: str) -> Optional[dict]:
         return BUS_REGIONS[q]
         
     # Check local DB for province match
-    for p in _LOCATIONS_DB.get("provinces", []):
-        if _normalize(p["name"]) == q:
-            return {
+    db_provinces = {p["name"]: p for p in _LOCATIONS_DB.get("provinces", [])}
+    db_norm_map = {_normalize(name): p for name, p in db_provinces.items()}
+    
+    # Combined terms from constants and DB
+    bus_terms = {}
+    # From constants (highest priority)
+    for key, info in BUS_REGIONS.items():
+        bus_terms[key] = info
+        for alias in info.get("aliases", []):
+            bus_terms[_normalize(alias)] = info
+            
+    # From DB (secondary)
+    for norm_name, p in db_norm_map.items():
+        if norm_name not in bus_terms:
+            bus_terms[norm_name] = {
                 "id": int(p["id"]),
                 "name": p["name"],
-                "slug": p.get("code", "").lower() or q
+                "slug": p.get("code", "").lower() or norm_name
             }
-            
+
+    # Fuzzy match
+    matches = difflib.get_close_matches(q, list(bus_terms.keys()), n=1, cutoff=0.7)
+    if matches:
+        return bus_terms[matches[0]]
+        
     return None
 
 
@@ -151,16 +187,9 @@ async def resolve_location_async(query: str, client: "TravelClient", recursive_h
     best_area = None
     for area in areas:
         name_norm = area.get("name", "").lower().strip()
-        if name_norm == q_norm:
-            if str(area.get("type")) == "3": # Province
-                best_area = area
-                break
-            if not best_area:
-                best_area = area
-    
     if not best_area:
-        # Prioritize Province (3) then District (5)
-        for t in ["3", "5"]:
+        # Prioritize Province then District
+        for t in [AREA_TYPE_PROVINCE, AREA_TYPE_DISTRICT]:
             for area in areas:
                 if str(area.get("type")) == t:
                     best_area = area

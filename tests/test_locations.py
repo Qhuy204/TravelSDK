@@ -76,22 +76,22 @@ class TestBusRegionResolver:
     def test_resolve_hanoi(self):
         result = resolve_bus_region("Hà Nội")
         assert result is not None
-        assert result["id"] == 124
+        assert result["id"] == 24
 
     def test_resolve_saigon(self):
         result = resolve_bus_region("Sài Gòn")
         assert result is not None
-        assert result["id"] == 1291
+        assert result["id"] == 29
 
     def test_resolve_by_key(self):
         result = resolve_bus_region("hanoi")
         assert result is not None
-        assert result["id"] == 124
+        assert result["id"] == 24
 
     def test_resolve_by_alias(self):
         result = resolve_bus_region("hcm")
         assert result is not None
-        assert result["id"] == 1291
+        assert result["id"] == 29
 
     def test_invalid(self):
         result = resolve_bus_region("NOWHERE_XYZ")

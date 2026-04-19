@@ -2,6 +2,7 @@ import argparse
 import asyncio
 import sys
 import json
+import importlib.metadata
 from datetime import datetime
 from travel.client import TravelClient
 import logging
@@ -45,7 +46,8 @@ async def run_search(args):
             print("-" * 65)
             for b in results:
                 price = getattr(b, "final_price", None) or getattr(b, "min_price", 0)
-                print(f"{b.operator_name[:24]:<25} | {b.bus_type[:14]:<15} | {format_price(price):<12} | {b.rating or 'N/A'}")
+                operator_name = getattr(b.operator, "name", "N/A")
+                print(f"{operator_name[:24]:<25} | {b.bus_type[:14]:<15} | {format_price(price):<12} | {b.rating or 'N/A'}")
         
         else: # unified search
             res = await client.search_all(args.origin, args.destination, args.date)
@@ -91,11 +93,16 @@ def main():
         elif sys.argv[1] == "--search":
             sys.argv[1] = "search"
 
+    try:
+        version = importlib.metadata.version("travel-sdk")
+    except importlib.metadata.PackageNotFoundError:
+        version = "0.0.0-dev"
+
     parser = argparse.ArgumentParser(
         prog="travel-sdk",
         description="Vietnam Transportation SDK CLI - Search for trains, buses, and flights."
     )
-    parser.add_argument("--version", action="version", version="travel-sdk 0.1.1")
+    parser.add_argument("--version", action="version", version=f"travel-sdk {version}")
     parser.add_argument("--verbose", action="store_true", help="Enable verbose logging")
     
     subparsers = parser.add_subparsers(dest="command", help="Available commands")

@@ -79,8 +79,4 @@ BUS_REGIONS: dict[str, dict] = {
     "dalat": { "id": 459, "name": "Đà Lạt", "slug": "da-lat", "aliases": ["da lat", "đà lạt"] },
     "vinh": { "id": 172, "name": "Vinh", "slug": "vinh", "aliases": ["vinh"] },
     "quynhon": { "id": 220, "name": "Quy Nhơn", "slug": "quy-nhon", "aliases": ["quy nhon", "quy nhơn"] },
-    "sonla": { "id": 54, "name": "Sơn La", "slug": "son-la", "aliases": ["son la", "sơn la"] },
-    "laocai": { "id": 36, "name": "Lào Cai", "slug": "lao-cai", "aliases": ["lao cai", "lào cai", "sapa"] },
-    "hagiang": { "id": 22, "name": "Hà Giang", "slug": "ha-giang", "aliases": ["ha giang", "hà giang"] },
 }
-

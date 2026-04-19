@@ -1,0 +1,859 @@
+{
+  "v3_area": {
+    "Hà Nội": [
+      {
+        "id": "24",
+        "name": "Hà Nội",
+        "type": 3,
+        "sub_type_id": "1",
+        "full_name": "Hà Nội",
+        "airport_count": 1,
+        "station_count": 12
+      },
+      {
+        "id": "171651",
+        "name": "Ga Hà Nội",
+        "type": 15,
+        "sub_type_id": "8",
+        "full_name": "Ga Hà Nội - Phường Quốc Tử Giám - Đống Đa - Hà Nội",
+        "airport_count": 1,
+        "station_count": 19
+      },
+      {
+        "id": "128",
+        "name": "Hoài Nhơn - Bình Định",
+        "type": 5,
+        "sub_type_id": "19",
+        "full_name": "Hoài Nhơn - Bình Định",
+        "airport_count": 1,
+        "station_count": 2
+      },
+      {
+        "id": "515",
+        "name": "Hưng Nguyên - Nghệ An",
+        "type": 5,
+        "sub_type_id": "19",
+        "full_name": "Hưng Nguyên - Nghệ An",
+        "airport_count": 1,
+        "station_count": 9
+      }
+    ],
+    "Hồ Chí Minh": [
+      {
+        "id": "29",
+        "name": "Hồ Chí Minh",
+        "type": 3,
+        "sub_type_id": "1",
+        "full_name": "Hồ Chí Minh",
+        "airport_count": 1,
+        "station_count": 1
+      },
+      {
+        "id": "29",
+        "name": "Hồ Chí Minh",
+        "type": 3,
+        "sub_type_id": "1",
+        "full_name": "Hồ Chí Minh",
+        "airport_count": 2,
+        "station_count": 3
+      }
+    ],
+    "Quận 1": [
+      {
+        "id": "387",
+        "name": "Quận 12 - Hồ Chí Minh",
+        "type": 5,
+        "sub_type_id": "19",
+        "full_name": "Quận 12 - Hồ Chí Minh",
+        "airport_count": 1,
+        "station_count": 4
+      },
+      {
+        "id": "385",
+        "name": "Quận 10 - Hồ Chí Minh",
+        "type": 5,
+        "sub_type_id": "19",
+        "full_name": "Quận 10 - Hồ Chí Minh",
+        "airport_count": 1,
+        "station_count": 4
+      },
+      {
+        "id": "386",
+        "name": "Quận 11 - Hồ Chí Minh",
+        "type": 5,
+        "sub_type_id": "19",
+        "full_name": "Quận 11 - Hồ Chí Minh",
+        "airport_count": 1,
+        "station_count": 4
+      },
+      {
+        "id": "376",
+        "name": "Quận 1 - Hồ Chí Minh",
+        "type": 5,
+        "sub_type_id": "19",
+        "full_name": "Quận 1 - Hồ Chí Minh",
+        "airport_count": 1,
+        "station_count": 4
+      },
+      {
+        "id": "29",
+        "name": "Hồ Chí Minh",
+        "type": 3,
+        "sub_type_id": "1",
+        "full_name": "Hồ Chí Minh",
+        "airport_count": 2,
+        "station_count": 3
+      }
+    ],
+    "Sơn La": [
+      {
+        "id": "500964",
+        "name": "Sơn Lang",
+        "type": 7,
+        "sub_type_id": null,
+        "full_name": "Sơn Lang",
+        "airport_count": 2,
+        "station_count": 0
+      },
+      {
+        "id": "649",
+        "name": "Sơn La - Sơn La",
+        "type": 5,
+        "sub_type_id": "17",
+        "full_name": "Sơn La - Sơn La",
+        "airport_count": 2,
+        "station_count": 0
+      },
+      {
+        "id": "52",
+        "name": "Sơn La",
+        "type": 3,
+        "sub_type_id": "2",
+        "full_name": "Sơn La",
+        "airport_count": 2,
+        "station_count": 0
+      },
+      {
+        "id": "502089",
+        "name": "Sơn Lâm",
+        "type": 7,
+        "sub_type_id": null,
+        "full_name": "Sơn Lâm",
+        "airport_count": 1,
+        "station_count": 0
+      },
+      {
+        "id": "501960",
+        "name": "Phú Sơn Lâm Hà",
+        "type": 7,
+        "sub_type_id": null,
+        "full_name": "Phú Sơn Lâm Hà",
+        "airport_count": 1,
+        "station_count": 2
+      }
+    ],
+    "Ga Sài Gòn": [
+      {
+        "id": "171723",
+        "name": "Ga Sài Gòn",
+        "type": 15,
+        "sub_type_id": "8",
+        "full_name": "Ga Sài Gòn - Quận 3 - Hồ Chí Minh",
+        "airport_count": 1,
+        "station_count": 4
+      }
+    ],
+    "Nội Bài": [
+      {
+        "id": "501046",
+        "name": "Nội Bài",
+        "type": 7,
+        "sub_type_id": null,
+        "full_name": "Nội Bài",
+        "airport_count": 1,
+        "station_count": 22
+      },
+      {
+        "id": "102188",
+        "name": "Sân bay Nội Bài",
+        "type": 15,
+        "sub_type_id": "6",
+        "full_name": "Sân bay Nội Bài - Phú Minh - Sóc Sơn - Hà Nội",
+        "airport_count": 1,
+        "station_count": 21
+      },
+      {
+        "id": "24",
+        "name": "Hà Nội",
+        "type": 3,
+        "sub_type_id": "1",
+        "full_name": "Hà Nội",
+        "airport_count": 1,
+        "station_count": 12
+      },
+      {
+        "id": "363",
+        "name": "Ngã Bảy - Hậu Giang",
+        "type": 5,
+        "sub_type_id": "20",
+        "full_name": "Ngã Bảy - Hậu Giang",
+        "airport_count": 2,
+        "station_count": 0
+      },
+      {
+        "id": "187",
+        "name": "Nguyên Bình - Cao Bằng",
+        "type": 5,
+        "sub_type_id": "19",
+        "full_name": "Nguyên Bình - Cao Bằng",
+        "airport_count": 1,
+        "station_count": 0
+      }
+    ],
+    "Sa Pa": [
+      {
+        "id": "501841",
+        "name": "Sa Pa",
+        "type": 7,
+        "sub_type_id": null,
+        "full_name": "Sa Pa",
+        "airport_count": 0,
+        "station_count": 3
+      },
+      {
+        "id": "482",
+        "name": "Sa Pa - Lào Cai",
+        "type": 5,
+        "sub_type_id": null,
+        "full_name": "Sa Pa - Lào Cai",
+        "airport_count": 1,
+        "station_count": 3
+      },
+      {
+        "id": "38",
+        "name": "Lào Cai",
+        "type": 3,
+        "sub_type_id": "2",
+        "full_name": "Lào Cai",
+        "airport_count": 1,
+        "station_count": 13
+      }
+    ],
+    "Vịnh Hạ Long": [],
+    "Móng Cái": [
+      {
+        "id": "502536",
+        "name": "Móng Cái 3",
+        "type": 7,
+        "sub_type_id": null,
+        "full_name": "Móng Cái 3",
+        "airport_count": 1,
+        "station_count": 0
+      },
+      {
+        "id": "502534",
+        "name": "Móng Cái 1",
+        "type": 7,
+        "sub_type_id": null,
+        "full_name": "Móng Cái 1",
+        "airport_count": 1,
+        "station_count": 0
+      },
+      {
+        "id": "502535",
+        "name": "Móng Cái 2",
+        "type": 7,
+        "sub_type_id": null,
+        "full_name": "Móng Cái 2",
+        "airport_count": 1,
+        "station_count": 0
+      },
+      {
+        "id": "615",
+        "name": "Móng Cái - Quảng Ninh",
+        "type": 5,
+        "sub_type_id": "17",
+        "full_name": "Móng Cái - Quảng Ninh",
+        "airport_count": 1,
+        "station_count": 0
+      },
+      {
+        "id": "839",
+        "name": "Bến xe Móng Cái",
+        "type": 15,
+        "sub_type_id": "1",
+        "full_name": "Bến xe Móng Cái - Phường Ka Long - Móng Cái - Quảng Ninh",
+        "airport_count": 1,
+        "station_count": 0
+      }
+    ],
+    "Bãi Cháy": [
+      {
+        "id": "502502",
+        "name": "Bãi Cháy",
+        "type": 7,
+        "sub_type_id": null,
+        "full_name": "Bãi Cháy",
+        "airport_count": 2,
+        "station_count": 8
+      },
+      {
+        "id": "1092",
+        "name": "Bến xe Bãi Cháy",
+        "type": 15,
+        "sub_type_id": "1",
+        "full_name": "Bến xe Bãi Cháy - Bãi Cháy - Hạ Long - Quảng Ninh",
+        "airport_count": 2,
+        "station_count": 8
+      },
+      {
+        "id": "606",
+        "name": "Ba Chẽ - Quảng Ninh",
+        "type": 5,
+        "sub_type_id": "19",
+        "full_name": "Ba Chẽ - Quảng Ninh",
+        "airport_count": 1,
+        "station_count": 1
+      },
+      {
+        "id": "136",
+        "name": "Bến Cát - Bình Dương",
+        "type": 5,
+        "sub_type_id": "19",
+        "full_name": "Bến Cát - Bình Dương",
+        "airport_count": 1,
+        "station_count": 3
+      },
+      {
+        "id": "652",
+        "name": "Bến Cầu - Tây Ninh",
+        "type": 5,
+        "sub_type_id": "19",
+        "full_name": "Bến Cầu - Tây Ninh",
+        "airport_count": 1,
+        "station_count": 0
+      }
+    ]
+  },
+  "v1_goyolo": {
+    "24": {
+      "id": "24",
+      "longitude": 105.652579403,
+      "base_id": "1926",
+      "latitude": 20.974882679500094,
+      "name": "Hà Nội",
+      "english_name": "Hanoi",
+      "code": "HNI",
+      "x_migrate_key": 24,
+      "state_id": "24",
+      "state_name": "Hà Nội",
+      "state_english_name": "Hanoi",
+      "type": 3,
+      "sub_type_id": "1",
+      "is_search_on_fe": 1,
+      "country_id": "1926",
+      "name_token": "Hà Nội",
+      "alias": [
+        "hn",
+        "noi ",
+        "ha",
+        "hanoi"
+      ],
+      "children_areas": [],
+      "merged_areas": [],
+      "merged_areas_info": [],
+      "legacy": 1,
+      "els_index": "area",
+      "full_name": "Hà Nội",
+      "full_english_name": "Hanoi",
+      "airports": [
+        {
+          "bbox": [
+            105.807178,
+            21.221192,
+            105.807178,
+            21.221192
+          ],
+          "geometry": {
+            "coordinates": [
+              105.807178,
+              21.221192
+            ],
+            "type": "Point"
+          },
+          "geometry_name": "the_geom",
+          "id": "102188",
+          "properties": {
+            "AirportName_Vi": "Sân bay Nội Bài",
+            "AirportName_En": "Noi Bai International Airport",
+            "CityName_Vi": "Hà Nội",
+            "CityName_En": "Hanoi",
+            "CountryName_Vi": "Việt nam",
+            "CountryName_En": "Vietnam",
+            "VxrAreaId": 102188,
+            "CITY": "Hanoi",
+            "COUNTRY": "Vietnam",
+            "DST": "U",
+            "IATA_FAA": "HAN",
+            "ICAO": "VVNB",
+            "NAME": "Noibai Intl  Airport",
+            "NAME_SHORT": "Noibai Intl",
+            "OF_APT_ID": 3199,
+            "Other": "International",
+            "TYPE": "I",
+            "TZ": 7,
+            "X": 105.807175,
+            "Y": 21.221191,
+            "Z__feet_": 39,
+            "total_leng": 7000
+          },
+          "type": "Feature",
+          "oldLocation": "Phú Minh, Sóc Sơn, Hà Nội",
+          "parent_id": 501067,
+          "newLocation": "Sóc Sơn, Hà Nội",
+          "distance": 41.26032025866256
+        }
+      ],
+      "train_stations": [
+        {
+          "name": "Ga Phú Diễn",
+          "lat": 21.0515228,
+          "long": 105.7649182,
+          "id": 103,
+          "code": "PDI",
+          "short_name": "Phú Diễn",
+          "oldLocation": "Phường Phúc Diễn, Bắc Từ Liêm, Hà Nội",
+          "parent_id": 501050,
+          "newLocation": "Phú Diễn, Hà Nội",
+          "distance": 18.775816517312393
+        },
+        {
+          "name": "Ga Giáp Bát",
+          "lat": 20.9785859,
+          "long": 105.8405042,
+          "id": 45,
+          "code": "GBA",
+          "short_name": "Giáp Bát",
+          "oldLocation": "Phường Định Công, Hoàng Mai, Hà Nội",
+          "parent_id": 501006,
+          "newLocation": "Định Công, Hà Nội",
+          "distance": 25.370467933694513
+        },
+        {
+          "es_id": 171754,
+          "name": "Ga Văn Điển",
+          "lat": 20.9441824,
+          "long": 105.8441764,
+          "id": 156,
+          "code": "VDI",
+          "short_name": "Văn Điển",
+          "oldLocation": "Xã Trung Giã, Sóc Sơn, Hà Nội",
+          "base_id": 136974,
+          "parent_id": 501023,
+          "newLocation": "Hoàng Liệt, Hà Nội",
+          "distance": 26.24141857621727
+        },
+        {
+          "name": "Ga Hà Nội",
+          "lat": 21.0250615,
+          "long": 105.8411814,
+          "id": 53,
+          "code": "HNO",
+          "short_name": "Hà Nội",
+          "oldLocation": "Phường Quốc Tử Giám, Đống Đa, Hà Nội",
+          "parent_id": 501095,
+          "newLocation": "Văn Miếu - Quốc Tử Giám, Hà Nội",
+          "distance": 26.46566049116218,
+          "is_station_default": true
+        },
+        {
+          "es_id": 171664,
+          "name": "Ga Long Biên",
+          "lat": 21.0399252,
+          "long": 105.8501554,
+          "id": 66,
+          "code": "LBI",
+          "short_name": "Long Biên",
+          "oldLocation": "Phường Long Biên, Long Biên, Hà Nội",
+          "base_id": 136891,
+          "parent_id": 501038,
+          "newLocation": "Long Biên, Hà Nội",
+          "distance": 28.271218161161205
+        },
+        {
+          "name": "Ga Gia Lâm",
+          "lat": 21.0494904,
+          "long": 105.8832546,
+          "id": 48,
+          "code": "GLA",
+          "short_name": "Gia Lâm",
+          "oldLocation": "Phường Bồ Đề, Long Biên, Hà Nội",
+          "parent_id": 500991,
+          "newLocation": "Bồ Đề, Hà Nội",
+          "distance": 32.94295653593288
+        },
+        {
+          "name": "Ga Thạch Lỗi",
+          "lat": 21.2010468,
+          "long": 105.7496547,
+          "id": 147,
+          "code": "TLI",
+          "short_name": "Thạch Lỗi",
+          "oldLocation": "Xã Mê Linh, Mê Linh, Hà Nội",
+          "parent_id": 501039,
+          "newLocation": "Mê Linh, Hà Nội",
+          "distance": 35.21703595580359
+        },
+        {
+          "name": "Ga Đông Anh",
+          "lat": 21.1535075,
+          "long": 105.8524237,
+          "id": 26,
+          "code": "DAN",
+          "short_name": "Đông Anh",
+          "oldLocation": "Thị trấn Đông Anh, Đông Anh, Hà Nội",
+          "parent_id": 501008,
+          "newLocation": "Đông Anh, Hà Nội",
+          "distance": 37.32878268879237
+        },
+        {
+          "name": "Ga Cổ Loa",
+          "lat": 21.1334436,
+          "long": 105.8735061,
+          "id": 21,
+          "code": "CLO",
+          "short_name": "Cổ Loa",
+          "oldLocation": "Xã Cổ Loa, Đông Anh, Hà Nội",
+          "parent_id": 501008,
+          "newLocation": "Đông Anh, Hà Nội",
+          "distance": 37.598017495399084
+        },
+        {
+          "name": "Ga Yên Viên",
+          "lat": 21.0842942,
+          "long": 105.9159123,
+          "id": 171,
+          "code": "YVI",
+          "short_name": "Yên Viên",
+          "oldLocation": "Thị trấn Yên Viên, Gia Lâm, Hà Nội",
+          "parent_id": 501051,
+          "newLocation": "Phù Đổng, Hà Nội",
+          "distance": 38.8914130521164
+        },
+        {
+          "name": "Ga Đa Phúc",
+          "lat": 21.2331323,
+          "long": 105.8611465,
+          "id": 27,
+          "code": "DAP",
+          "short_name": "Đa Phúc",
+          "oldLocation": "Xã Tiên Dược, Sóc Sơn, Hà Nội",
+          "parent_id": 501067,
+          "newLocation": "Sóc Sơn, Hà Nội",
+          "distance": 46.74094227512553
+        },
+        {
+          "es_id": 171735,
+          "name": "Ga Trung Giã",
+          "lat": 21.3148237,
+          "long": 105.8711565,
+          "id": 137,
+          "code": "TGI",
+          "short_name": "Trung Giã",
+          "oldLocation": "Xã Trung Giã, Sóc Sơn, Hà Nội",
+          "base_id": 136974,
+          "parent_id": 501089,
+          "newLocation": "Trung Giã, Hà Nội",
+          "distance": 57.298399392300794
+        }
+      ]
+    },
+    "49": {
+      "id": "49",
+      "longitude": 107.2941778,
+      "base_id": "1926",
+      "latitude": 21.01214039,
+      "name": "Quảng Ninh",
+      "english_name": "Quang Ninh",
+      "code": "QNH",
+      "x_migrate_key": 49,
+      "state_id": "49",
+      "state_name": "Quảng Ninh",
+      "state_english_name": "Quang Ninh",
+      "type": 3,
+      "sub_type_id": "2",
+      "is_search_on_fe": 1,
+      "country_id": "1926",
+      "name_token": "Quảng Ninh",
+      "alias": [
+        "quangninh"
+      ],
+      "children_areas": [],
+      "merged_areas": [],
+      "merged_areas_info": [],
+      "legacy": 1,
+      "els_index": "area",
+      "full_name": "Quảng Ninh",
+      "full_english_name": "Quang Ninh",
+      "airports": [
+        {
+          "geometry": {
+            "coordinates": [
+              107.4166092,
+              21.1163002
+            ],
+            "type": "Point"
+          },
+          "geometry_name": "the_geom",
+          "id": "149325",
+          "properties": {
+            "AirportName_Vi": "Sân bay Vân Đồn",
+            "AirportName_En": "Van Don Airport",
+            "CityName_Vi": "Quảng Ninh",
+            "CityName_En": "Quang Ninh",
+            "CountryName_Vi": "Việt nam",
+            "CountryName_En": "Vietnam",
+            "VxrAreaId": 149325,
+            "CITY": "Quang Ninh",
+            "COUNTRY": "Vietnam",
+            "DST": "U",
+            "IATA_FAA": "VDO",
+            "ICAO": "VVVD",
+            "NAME": "Van Don Airport",
+            "NAME_SHORT": "Quang Ninh",
+            "OF_APT_ID": 6187,
+            "Other": null,
+            "TYPE": "D",
+            "TZ": 7,
+            "X": 107.4166092,
+            "Y": 21.1163002,
+            "Z__feet_": 1729,
+            "total_leng": 3000
+          },
+          "type": "Feature",
+          "oldLocation": "Xã Đoàn Kết, Vân Đồn, Quảng Ninh",
+          "parent_id": 502550,
+          "newLocation": "Vân Đồn, Quảng Ninh",
+          "distance": 22.348532895635717
+        }
+      ],
+      "train_stations": [
+        {
+          "name": "Ga Hạ Long",
+          "lat": 20.9719208,
+          "long": 107.0100097,
+          "id": 52,
+          "code": "HLO",
+          "short_name": "Hạ Long",
+          "oldLocation": "Hạ Long, Quảng Ninh",
+          "parent_id": 502551,
+          "newLocation": "Việt Hưng, Quảng Ninh",
+          "distance": 38.78933647858359
+        },
+        {
+          "name": "Ga Yên Cư",
+          "lat": 20.9840239,
+          "long": 106.9153373,
+          "id": 166,
+          "code": "YCU",
+          "short_name": "Yên Cư",
+          "oldLocation": "Hạ Long, Quảng Ninh",
+          "parent_id": 502547,
+          "newLocation": "Tuần Châu, Quảng Ninh",
+          "distance": 51.28730970679205
+        },
+        {
+          "name": "Ga Nam Khê",
+          "lat": 21.0230507,
+          "long": 106.8119382,
+          "id": 97,
+          "code": "NKH",
+          "short_name": "Nam Khê",
+          "oldLocation": "Uông Bí, Quảng Ninh",
+          "parent_id": null,
+          "newLocation": "Uông Bí, Quảng Ninh",
+          "distance": 65.09071856543446
+        },
+        {
+          "name": "Ga Bàn Cờ",
+          "lat": 21.03246193,
+          "long": 106.7778597,
+          "id": 5,
+          "code": "BCO",
+          "short_name": "Bàn Cờ",
+          "oldLocation": "Uông Bí, Quảng Ninh",
+          "newLocation": "Uông Bí, Quảng Ninh",
+          "distance": 69.72973514005231
+        },
+        {
+          "name": "Ga Uông Bí",
+          "lat": 21.0347666,
+          "long": 106.7558082,
+          "id": 154,
+          "code": "UBI",
+          "short_name": "Uông Bí",
+          "oldLocation": "Uông Bí, Quảng Ninh",
+          "parent_id": 502548,
+          "newLocation": "Uông Bí, Quảng Ninh",
+          "distance": 72.7163135254531
+        },
+        {
+          "name": "Ga Yên Dưỡng",
+          "lat": 21.045549,
+          "long": 106.7012302,
+          "id": 168,
+          "code": "YED",
+          "short_name": "Yên Dưỡng",
+          "oldLocation": "Đông Triều, Quảng Ninh",
+          "parent_id": 502525,
+          "newLocation": "Hoàng Quế, Quảng Ninh",
+          "distance": 80.14970392083667
+        },
+        {
+          "name": "Ga Mạo Khê",
+          "lat": 21.0628357,
+          "long": 106.6036463,
+          "id": 83,
+          "code": "MAK",
+          "short_name": "Mạo Khê",
+          "oldLocation": "Đông Triều, Quảng Ninh",
+          "parent_id": 502533,
+          "newLocation": "Mạo Khê, Quảng Ninh",
+          "distance": 93.45302812065515
+        },
+        {
+          "name": "Ga Ðông Triều",
+          "lat": 21.0953974,
+          "long": 106.5329046,
+          "id": 38,
+          "code": "DOT",
+          "short_name": "Ðông Triều",
+          "oldLocation": "Đông Triều, Quảng Ninh",
+          "parent_id": 502500,
+          "newLocation": "An Sinh, Quảng Ninh",
+          "distance": 103.40113381799436
+        }
+      ]
+    },
+    "482": {
+      "id": "482",
+      "base_id": "38",
+      "longitude": 103.8437852,
+      "latitude": 22.3363608,
+      "name": "Sa Pa",
+      "english_name": "SaPa",
+      "code": "sp",
+      "x_migrate_key": "424",
+      "city_id": "482",
+      "city_name": "Sa Pa",
+      "city_english_name": "SaPa",
+      "address": "",
+      "english_address": null,
+      "type": 5,
+      "sub_type_id": null,
+      "is_search_on_fe": 1,
+      "state_id": "38",
+      "state_name": "Lào Cai",
+      "state_english_name": "Lao Cai",
+      "country_id": "1926",
+      "name_token": "Sa Pa",
+      "alias": [
+        "sapa"
+      ],
+      "children_areas": [],
+      "merged_areas": [],
+      "merged_areas_info": [],
+      "legacy": 1,
+      "els_index": "area",
+      "full_name": "Sa Pa - Lào Cai",
+      "full_english_name": "SaPa - Lao Cai",
+      "airports": [
+        {
+          "bbox": [
+            105.807178,
+            21.221192,
+            105.807178,
+            21.221192
+          ],
+          "geometry": {
+            "coordinates": [
+              105.807178,
+              21.221192
+            ],
+            "type": "Point"
+          },
+          "geometry_name": "the_geom",
+          "id": "102188",
+          "properties": {
+            "AirportName_Vi": "Sân bay Nội Bài",
+            "AirportName_En": "Noi Bai International Airport",
+            "CityName_Vi": "Hà Nội",
+            "CityName_En": "Hanoi",
+            "CountryName_Vi": "Việt nam",
+            "CountryName_En": "Vietnam",
+            "VxrAreaId": 102188,
+            "CITY": "Hanoi",
+            "COUNTRY": "Vietnam",
+            "DST": "U",
+            "IATA_FAA": "HAN",
+            "ICAO": "VVNB",
+            "NAME": "Noibai Intl  Airport",
+            "NAME_SHORT": "Noibai Intl",
+            "OF_APT_ID": 3199,
+            "Other": "International",
+            "TYPE": "I",
+            "TZ": 7,
+            "X": 105.807175,
+            "Y": 21.221191,
+            "Z__feet_": 39,
+            "total_leng": 7000
+          },
+          "type": "Feature",
+          "oldLocation": "Phú Minh, Sóc Sơn, Hà Nội",
+          "parent_id": 501067,
+          "newLocation": "Sóc Sơn, Hà Nội",
+          "distance": 308.9404414510523
+        }
+      ],
+      "train_stations": [
+        {
+          "name": "Ga Lào Cai",
+          "lat": 22.4922323,
+          "long": 103.9782991,
+          "id": 67,
+          "code": "LCA",
+          "short_name": "Lào Cai",
+          "oldLocation": "Phường Lào Cai, Lào Cai, Lào Cai",
+          "parent_id": 501808,
+          "newLocation": "Lào Cai, Lào Cai",
+          "distance": 28.823529960457048,
+          "is_station_default": true
+        },
+        {
+          "name": "Ga Thái Niên",
+          "lat": 22.3992117,
+          "long": 104.0868167,
+          "id": 151,
+          "code": "TNI",
+          "short_name": "Thái Niên",
+          "oldLocation": "Bảo Thắng, Lào Cai",
+          "parent_id": 501782,
+          "newLocation": "Bảo Thắng, Lào Cai",
+          "distance": 33.73422808899866
+        },
+        {
+          "name": "Ga Phố Lu",
+          "lat": 22.314265,
+          "long": 104.187589,
+          "id": 110,
+          "code": "PLU",
+          "short_name": "Phố Lu",
+          "oldLocation": "Bảo Thắng, Lào Cai",
+          "parent_id": 501782,
+          "newLocation": "Bảo Thắng, Lào Cai",
+          "distance": 46.083556508050556
+        }
+      ]
+    }
+  }
+}
