@@ -1,7 +1,7 @@
 
 # TravelSDK for Python
 
-[![PyPI version](https://img.shields.io/pypi/v/travel-sdk.svg)](https://pypi.org/project/travel-sdk/) [![Python](https://img.shields.io/badge/python-3.9%2B-blue.svg)](https://www.python.org/) [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://claude.ai/chat/LICENSE)
+[![PyPI version](https://img.shields.io/pypi/v/travel-sdk.svg)](https://pypi.org/project/travel-sdk/) [![Python](https://img.shields.io/badge/python-3.9%2B-blue.svg)](https://www.python.org/) [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
 **TravelSDK** là thư viện Python thống nhất để tìm kiếm và so sánh vé tàu, xe khách, và máy bay nội địa Việt Nam theo thời gian thực. SDK trả về dữ liệu Pydantic-validated, async-first, được thiết kế đặc biệt để tích hợp vào **AI Agents** và  **RAG pipelines** .
 
@@ -11,29 +11,29 @@
 
 ## Mục lục
 
-1. [Tính năng nổi bật](https://claude.ai/chat/4ef99918-77e5-4170-a172-3b28ac28910c#1-t%C3%ADnh-n%C4%83ng-n%E1%BB%95i-b%E1%BA%ADt)
-2. [Kiến trúc](https://claude.ai/chat/4ef99918-77e5-4170-a172-3b28ac28910c#2-ki%E1%BA%BFn-tr%C3%BAc)
-3. [Cài đặt](https://claude.ai/chat/4ef99918-77e5-4170-a172-3b28ac28910c#3-c%C3%A0i-%C4%91%E1%BA%B7t)
-4. [Quickstart — 5 phút chạy được](https://claude.ai/chat/4ef99918-77e5-4170-a172-3b28ac28910c#4-quickstart--5-ph%C3%BAt-ch%E1%BA%A1y-%C4%91%C6%B0%E1%BB%A3c)
-5. [Command Line Interface (CLI)](https://claude.ai/chat/4ef99918-77e5-4170-a172-3b28ac28910c#5-command-line-interface-cli)
-6. [Python API Reference](https://claude.ai/chat/4ef99918-77e5-4170-a172-3b28ac28910c#6-python-api-reference)
-   * [TravelClient](https://claude.ai/chat/4ef99918-77e5-4170-a172-3b28ac28910c#travelclient)
-   * [search_trains](https://claude.ai/chat/4ef99918-77e5-4170-a172-3b28ac28910c#search_trains)
-   * [search_buses](https://claude.ai/chat/4ef99918-77e5-4170-a172-3b28ac28910c#search_buses)
-   * [search_flights](https://claude.ai/chat/4ef99918-77e5-4170-a172-3b28ac28910c#search_flights)
-   * [search_all](https://claude.ai/chat/4ef99918-77e5-4170-a172-3b28ac28910c#search_all)
-   * [Calendar APIs](https://claude.ai/chat/4ef99918-77e5-4170-a172-3b28ac28910c#calendar-apis)
-   * [Location Resolution](https://claude.ai/chat/4ef99918-77e5-4170-a172-3b28ac28910c#location-resolution)
-7. [Data Schema](https://claude.ai/chat/4ef99918-77e5-4170-a172-3b28ac28910c#7-data-schema)
-   * [TrainTicket](https://claude.ai/chat/4ef99918-77e5-4170-a172-3b28ac28910c#trainticket)
-   * [BusTicket](https://claude.ai/chat/4ef99918-77e5-4170-a172-3b28ac28910c#busticket)
-   * [FlightTicket](https://claude.ai/chat/4ef99918-77e5-4170-a172-3b28ac28910c#flightticket)
-   * [SearchResult](https://claude.ai/chat/4ef99918-77e5-4170-a172-3b28ac28910c#searchresult)
-8. [Location Format](https://claude.ai/chat/4ef99918-77e5-4170-a172-3b28ac28910c#8-location-format)
-9. [Error Handling](https://claude.ai/chat/4ef99918-77e5-4170-a172-3b28ac28910c#9-error-handling)
-10. [AI Agent / RAG Integration](https://claude.ai/chat/4ef99918-77e5-4170-a172-3b28ac28910c#10-ai-agent--rag-integration)
-11. [Development &amp; Testing](https://claude.ai/chat/4ef99918-77e5-4170-a172-3b28ac28910c#11-development--testing)
-12. [Changelog](https://claude.ai/chat/4ef99918-77e5-4170-a172-3b28ac28910c#12-changelog)
+1. [Tính năng nổi bật](#1-tính-năng-nổi-bật)
+2. [Kiến trúc](#2-kiến-trúc)
+3. [Cài đặt](#3-cài-đặt)
+4. [Quickstart — 5 phút chạy được](#4-quickstart--5-phút-chạy-được)
+5. [Command Line Interface (CLI)](#5-command-line-interface-cli)
+6. [Python API Reference](#6-python-api-reference)
+   * [TravelClient](#travelclient)
+   * [search_trains](#search_trains)
+   * [search_buses](#search_buses)
+   * [search_flights](#search_flights)
+   * [search_all](#search_all)
+   * [Calendar APIs](#calendar-apis)
+   * [Location Resolution](#location-resolution)
+7. [Data Schema](#7-data-schema)
+   * [TrainTicket](#trainticket)
+   * [BusTicket](#busticket)
+   * [FlightTicket](#flightticket)
+   * [SearchResult](#searchresult)
+8. [Location Format](#8-location-format)
+9. [Error Handling](#9-error-handling)
+10. [AI Agent / RAG Integration](#10-ai-agent--rag-integration)
+11. [Development & Testing](#11-development--testing)
+12. [Changelog](#12-changelog)
 
 ---
 
@@ -892,22 +892,36 @@ TravelSDK/
 
 ## 12. Changelog
 
+### v0.1.3 (2026-04-19)
+
+* **Smart Fuzzy Matching**: Tích hợp `difflib.get_close_matches` cho cả 3 chế độ — Train, Flight, Bus. Người dùng có thể nhập `hnoi`, `sgn`, `hcm` và SDK tự resolve đúng.
+* **CLI Bug Fix**: Sửa `AttributeError` khi hiển thị kết quả bus (`b.operator_name` → `b.operator.name`).
+* **Dynamic Versioning**: `--version` flag đọc từ package metadata thay vì hardcode.
+* **Accurate `summary()`**: Dùng `min()` thay cho `[0]` để đảm bảo giá hiển thị luôn là giá rẻ nhất thực sự.
+* **Auth Stability**: Refactor `TokenManager._acquire()` sang vòng lặp iterative, loại bỏ recursion gây `RuntimeError: Event loop is closed`.
+* **PEP 561**: Thêm `travel/py.typed` marker để IDE nhận đầy đủ type hints.
+* **Test Suite**: Chuyển đổi toàn bộ test scripts sang `pytest-asyncio` chuẩn. Thêm `tests/conftest.py` và đạt 35/35 tests passed.
+* **Structure**: Di chuyển test files vào `tests/`, thêm `scratch/` vào `.gitignore`.
+
 ### v0.1.2 (2026-04-19)
 
 * Thêm `include_trains/buses/flights` flags cho `search_all`
 * Cải thiện hierarchical hub resolution cho district-level queries
-* CLI: thêm `--mode` flag cho search subcommand
+* CLI: thêm `--mode` flag và `--list`/`--search` alias
+* Fix PyPI version conflict bằng cách bump version
 
-### v0.1.1
+### v0.1.1 (2026-04-19)
 
 * Fix token invalidation khi nhận 401
 * Thêm exponential backoff cho retry
+* Đăng ký CLI entry point `travel-sdk`
 
-### v0.1.0
+### v0.1.0 (2026-04-18)
 
 * Initial release
 * Unified search API cho tàu, xe, máy bay
-* Offline location database
+* Offline location database (63 tỉnh, 160+ ga, toàn bộ sân bay nội địa)
+* Hierarchical location resolution (District → Province Hub)
 
 ---
 
