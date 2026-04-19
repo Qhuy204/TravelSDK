@@ -84,11 +84,18 @@ async def run_list(args):
             print(f"{item['code']:<5} | {item['name']}")
 
 def main():
+    # Pre-process sys.argv to be more forgiving with flags like --list or --search
+    if len(sys.argv) > 1:
+        if sys.argv[1] == "--list":
+            sys.argv[1] = "list"
+        elif sys.argv[1] == "--search":
+            sys.argv[1] = "search"
+
     parser = argparse.ArgumentParser(
         prog="travel-sdk",
         description="Vietnam Transportation SDK CLI - Search for trains, buses, and flights."
     )
-    parser.add_argument("--version", action="version", version="travel-sdk 0.1.0")
+    parser.add_argument("--version", action="version", version="travel-sdk 0.1.1")
     parser.add_argument("--verbose", action="store_true", help="Enable verbose logging")
     
     subparsers = parser.add_subparsers(dest="command", help="Available commands")
