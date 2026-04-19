@@ -16,6 +16,8 @@ BUS_SEARCH_URL = f"{PROVIDER_ROUTE_URL}/v2/route"
 BUS_COUNT_URL = f"{PROVIDER_ROUTE_URL}/v2/route/count"
 FLIGHT_SEARCH_URL = f"{PROVIDER_ROUTE_URL}/v2/route/flight"
 FLIGHT_COUNT_URL = f"{PROVIDER_ROUTE_URL}/v2/route/flight/count"
+AREA_SEARCH_URL = f"{PROVIDER_ROUTE_URL}/v3/area"
+AREA_DETAIL_URL = f"{PROVIDER_ROUTE_URL}/v1/goyolo/area"
 
 # Default Request Headers
 DEFAULT_HEADERS = {

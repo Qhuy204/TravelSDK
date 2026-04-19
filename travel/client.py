@@ -25,11 +25,22 @@ from typing import Optional, Any
 import httpx
 
 from travel.auth import TokenManager
-from travel.constants import DEFAULT_HEADERS, PROVIDER_BASE_URL
+from travel.constants import (
+    DEFAULT_HEADERS,
+    PROVIDER_BASE_URL,
+    AREA_SEARCH_URL,
+    AREA_DETAIL_URL,
+)
 from travel.locations import (
     resolve_train_station,
     resolve_flight_airport,
     resolve_bus_region,
+    resolve_train_station_async,
+    resolve_flight_airport_async,
+    resolve_bus_region_async,
+    get_all_provinces,
+    get_all_airports,
+    get_all_train_stations,
 )
 from travel.models import (
     TrainTicket,
@@ -123,6 +134,30 @@ class TravelClient:
         """Resolve a city name to its bus region ID."""
         return resolve_bus_region(query)
 
+    def get_provinces(self) -> list[dict]:
+        """Return a list of all 63 provinces in Vietnam from the local database."""
+        return get_all_provinces()
+
+    def get_airports(self) -> list[dict]:
+        """Return a list of all airports in Vietnam from the local database."""
+        return get_all_airports()
+
+    def get_train_stations(self) -> list[dict]:
+        """Return a list of all train stations in Vietnam from the local database."""
+        return get_all_train_stations()
+
+    async def resolve_train_station_async(self, query: str) -> Optional[dict]:
+        """Async version of resolve_train_station with hierarchical discovery."""
+        return await resolve_train_station_async(query, self)
+
+    async def resolve_flight_airport_async(self, query: str) -> Optional[dict]:
+        """Async version of resolve_flight_airport with hierarchical discovery."""
+        return await resolve_flight_airport_async(query, self)
+
+    async def resolve_bus_region_async(self, query: str) -> Optional[dict]:
+        """Async version of resolve_bus_region with dynamic search fallback."""
+        return await resolve_bus_region_async(query, self)
+
     # Internal request helper
 
     async def _get(self, url: str, params: dict | None = None) -> dict:
@@ -177,6 +212,34 @@ class TravelClient:
 
         return {}
 
+    async def search_areas(self, query: str) -> list[dict]:
+        """
+        Search for areas (provinces, cities, districts) by name.
+        
+        Args:
+            query: Search string (e.g., "Quang Ninh")
+        
+        Returns:
+            List of matching area dicts.
+        """
+        params = {"q": query, "is_merged_province": 1}
+        data = await self._get(AREA_SEARCH_URL, params=params)
+        return data.get("data", [])
+
+    async def get_area_details(self, area_id: str | int) -> dict:
+        """
+        Get full details for a specific area.
+        
+        Args:
+            area_id: The ID of the area (e.g., 49)
+        
+        Returns:
+            Detailed area data dict.
+        """
+        url = f"{AREA_DETAIL_URL}/{area_id}"
+        data = await self._get(url)
+        return data.get("data", {})
+
     # Train search methods
 
     async def search_trains(
@@ -200,8 +263,8 @@ class TravelClient:
         Returns:
             List of TrainTicket objects.
         """
-        from_info = resolve_train_station(from_location)
-        to_info = resolve_train_station(to_location)
+        from_info = await resolve_train_station_async(from_location, self)
+        to_info = await resolve_train_station_async(to_location, self)
 
         if not from_info or not to_info:
             logger.error(f"Could not resolve locations: '{from_location}' or '{to_location}'")
@@ -225,8 +288,8 @@ class TravelClient:
         passengers: int = 1,
     ) -> dict:
         """Get train availability calendar for a given month."""
-        from_info = resolve_train_station(from_location)
-        to_info = resolve_train_station(to_location)
+        from_info = await resolve_train_station_async(from_location, self)
+        to_info = await resolve_train_station_async(to_location, self)
 
         if not from_info or not to_info:
             return {}
@@ -268,7 +331,7 @@ class TravelClient:
         if isinstance(from_location, int):
             from_id = from_location
         else:
-            from_info = resolve_bus_region(from_location)
+            from_info = await resolve_bus_region_async(from_location, self)
             if not from_info:
                 logger.error(f"Could not resolve bus region: '{from_location}'")
                 return []
@@ -277,7 +340,7 @@ class TravelClient:
         if isinstance(to_location, int):
             to_id = to_location
         else:
-            to_info = resolve_bus_region(to_location)
+            to_info = await resolve_bus_region_async(to_location, self)
             if not to_info:
                 logger.error(f"Could not resolve bus region: '{to_location}'")
                 return []
@@ -321,8 +384,8 @@ class TravelClient:
         Returns:
             List of FlightTicket objects.
         """
-        from_info = resolve_flight_airport(from_location)
-        to_info = resolve_flight_airport(to_location)
+        from_info = await resolve_flight_airport_async(from_location, self)
+        to_info = await resolve_flight_airport_async(to_location, self)
 
         if not from_info or not to_info:
             logger.error(f"Could not resolve airports: '{from_location}' or '{to_location}'")
@@ -349,8 +412,8 @@ class TravelClient:
         passengers: int = 1,
     ) -> dict:
         """Get flight price calendar for a given month."""
-        from_info = resolve_flight_airport(from_location)
-        to_info = resolve_flight_airport(to_location)
+        from_info = await resolve_flight_airport_async(from_location, self)
+        to_info = await resolve_flight_airport_async(to_location, self)
 
         if not from_info or not to_info:
             return {}

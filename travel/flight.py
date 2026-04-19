@@ -364,10 +364,12 @@ async def search_flights(
     min_pd = data.get("min_price_data", {})
     max_pd = data.get("max_price_data", {})
     total = data.get("total", len(tickets))
-    if min_pd:
+    if min_pd and min_pd.get('price') is not None:
+        min_p = min_pd.get('price', 0)
+        max_p = max_pd.get('price', 0)
         logger.info(
             f"Found {len(tickets)}/{total} flights {from_iata}→{to_iata} on {date} | "
-            f"Price: {min_pd.get('price', '?'):,}–{max_pd.get('price', '?'):,} VND"
+            f"Price: {min_p:,}–{max_p:,} VND"
         )
     else:
         logger.info(f"Found {len(tickets)}/{total} flights from {from_iata} to {to_iata} on {date}")

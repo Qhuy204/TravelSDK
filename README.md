@@ -1,210 +1,214 @@
-# TravelSDK Documentation
+# TravelSDK for Python
 
-TravelSDK is a Python library that unifies access to train, bus, and flight search across Vietnam into a single, consistent API. It transforms raw travel data into structured Pydantic models, making it easier to integrate into backend services, data pipelines, or intelligent applications such as chatbots. By abstracting fragmented data sources, TravelSDK helps developers build travel-related features faster and more reliably.
+[![PyPI version](https://img.shields.io/pypi/v/travel-sdk.svg)](https://pypi.org/project/travel-sdk/) [![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)](https://github.com/Qhuy204/TravelSDK) [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
-> [!CAUTION]
-> **Disclaimer**: This is an unofficial SDK and is not affiliated with or endorsed by Vexere. This project uses publicly accessible endpoints and is intended for educational purposes only. Use at your own risk.
-
----
-
-## 1. Initialization and Configuration
-
-To get started, initialize the `TravelClient` to manage token authentication and HTTP connections.
-
-### Parameters
-
-```python
-from travel import TravelClient
-
-client = TravelClient(
-    timeout=30.0,       # Request timeout in seconds
-    max_retries=2,      # Number of retries for network issues
-    verbose=False       # Enable detailed debug logs
-)
-```
-
-It is highly recommended to use the client as an async context manager to ensure proper resource cleanup:
-
-```python
-async with TravelClient() as client:
-    # Perform API calls here
-    ...
-```
+TravelSDK is a high-performance Python library designed to provide a single, consistent interface for searching and managing transportation data across Vietnam. By aggregating data from Vietnam Railways (VNR), dozens of domestic airlines, and hundreds of bus operators, TravelSDK simplifies the complexity of integrating fragmented transportation services into your applications.
 
 ---
 
-## 2. Search Guide
+## 1. Project Overview
 
-All search functions are asynchronous and support flexible location formats such as city names, IATA codes, or train station codes.
+The primary goal of TravelSDK is to empower developers building travel booking systems, data analysis pipelines, and intelligent AI agents (RAG) with structured, reliable transportation data.
 
-### 2.1 Train Search
+### Key Features
 
-Use the `search_trains` function to retrieve data from Vietnam Railways (VNR):
+* **Unified Search Interface**: Query trains, buses, and flights using a single method call.
+* **Hierarchical Location Discovery**: Automatically resolves vague location names (e.g., "District 1") to their nearest provincial transportation hubs.
+* **Built-in Location Database**: Includes an offline-first database of over 60 provinces, 160+ train stations, and all domestic airports.
+* **Strongly Typed Models**: Every response is validated using Pydantic, ensuring data integrity and providing full IDE autocompletion support.
+* **Async-First Architecture**: Built on top of `httpx` and `asyncio` for maximum concurrency and performance.
 
-```python
-train_tickets = await client.search_trains(
-    from_location="Hanoi",
-    to_location="Saigon",
-    date="2026-04-20",
-    passengers=1,
-    sort="fare:asc"
-)
+---
+
+## 2. Architecture and Design
+
+### Location Resolution Engine
+
+TravelSDK implements a dual-layer resolution strategy:
+
+1. **Local Cache Layer**: Checks the built-in `all_locations.json` for exact matches or codes (IATA/Station codes).
+2. **Dynamic Discovery Layer**: If not found locally, the SDK queries the remote API to resolve the area ID and metadata.
+
+### Hierarchical Hub Discovery
+
+A unique feature of TravelSDK is its ability to handle "Hub Resolution". If a user searches for a transport hub in a specific district (which typically lacks its own airport or major station), the SDK recursively queries the parent province to identify the actual gateway (e.g., resolving "Hoan Kiem" to "Hanoi Station").
+
+---
+
+## 3. Installation
+
+TravelSDK requires Python 3.9 or higher.
+
+### Standard Installation
+
+Install the latest stable version from PyPI:
+
+```bash
+pip install travel-sdk
 ```
 
-### 2.2 Bus Search
+### Development Installation
 
-Search through a network of hundreds of bus operators:
+Install directly from the GitHub repository for the latest features:
 
-```python
-bus_tickets = await client.search_buses(
-    from_location="Hanoi",
-    to_location="Da Nang",
-    date="2026-04-20"
-)
+```bash
+pip install git+https://github.com/Qhuy204/TravelSDK.git
 ```
 
-### 2.3 Flight Search
+### For Contributors
 
-Search for tickets from all domestic airlines:
+Clone the repository and install in editable mode with development dependencies:
 
-```python
-flight_tickets = await client.search_flights(
-    from_location="HAN",
-    to_location="SGN",
-    date="2026-04-20",
-    fare_class="economy"
-)
-```
-
-### 2.4 Unified Search
-
-The `search_all` function performs simultaneous searches for all three transportation modes:
-
-```python
-result = await client.search_all("Hanoi", "Saigon", "2026-04-20")
+```bash
+git clone https://github.com/Qhuy204/TravelSDK.git
+cd TravelSDK
+pip install -e ".[dev]"
 ```
 
 ---
 
-## 3. Data Structure
+## 4. Command Line Interface (CLI)
 
-### 3.1 TrainTicket
+TravelSDK comes with a powerful CLI tool named `travel-sdk` (exposed as an entry point).
 
-- `train_number`: Train code (SE1, SE3, etc.)
-- `min_price`: Current lowest fare
-- `cars`: Detailed carriage info, seat types, and availability
-- `utilities`: Amenities like Wifi, Air conditioning, Power outlets
-- `images`: Illustration links for train cars
+### Basic Usage
 
-### 3.2 BusTicket
+```bash
+# General help
+travel-sdk --help
 
-- `operator`: Operator name and code
-- `bus_type`: Vehicle type (Limousine, Sleeper, etc.)
-- `rating`: Average rating (0-5)
-- `pickup_points`, `dropoff_points`: List of stop points with GPS coordinates
+# Unified search across all modes
+travel-sdk search --from "Hanoi" --to "Saigon" --date "2026-05-20"
 
-### 3.3 FlightTicket
+# Specific mode search
+travel-sdk search --from "Hai Phong" --to "Nha Trang" --mode flight
 
-- `airline_name`: Airline company name
-- `flight_number`: Flight number
-- `airplane_name`: Aircraft model (Airbus, Boeing, etc.)
-- `baggage_info`: Carry-on and checked baggage details
-- `is_non_stop`: Boolean indicating a direct flight
+# List available resources
+travel-sdk list provinces
+travel-sdk list airports
+travel-sdk list stations
+```
+
+### CLI Flags
+
+* `--verbose`: Enables detailed debugging logs for all HTTP requests.
+* `--version`: Displays the current version of the SDK.
 
 ---
 
-## 4. Utilities and Calendars
+## 5. Python API Reference
 
-### 4.1 Monthly Calendar
+### Initialization
 
-Retrieve price and availability for an entire month to help AI suggest the cheapest travel dates:
-
-```python
-# Example for train calendar
-calendar = await client.get_train_calendar("Hanoi", "Saigon", month=4, year=2026)
-```
-
-### 4.2 Location Resolution
-
-The SDK automatically resolves location names to internal IDs, but you can also do it manually:
+The `TravelClient` is the main entry point. It manages authentication tokens and connection pooling automatically.
 
 ```python
-# Resolve airport by name or IATA code
-airport = client.resolve_flight_airport("Tan Son Nhat") 
-
-# Resolve bus region ID
-region = client.resolve_bus_region("Ho Chi Minh")
-```
-
----
-
-## 5. Full Code Example
-
-```python
-import asyncio
 from travel import TravelClient
 
 async def main():
-    async with TravelClient() as client:
-        # 1. Multi-modal parallel search
-        result = await client.search_all("Hanoi", "Saigon", "2026-04-20")
-      
-        # 2. Extract summary
-        summary = result.summary()
-        print(f"Summary for AI: {summary}")
-      
-        # 3. Get cheapest option
-        cheapest = result.cheapest()
-        print(f"Cheapest: {cheapest.min_price} VND")
+    async with TravelClient(timeout=30.0, max_retries=3) as client:
+        # Client handles token rotation and retries internally
+        pass
+```
 
-        # 4. Fetch flight calendar
-        calendar = await client.get_flight_calendar("HAN", "SGN", 5, 2026)
+### Unified Search (`search_all`)
 
-if __name__ == "__main__":
-    asyncio.run(main())
+Runs parallel searches across all available transportation modes and returns a consolidated object.
+
+```python
+results = await client.search_all(
+    from_location="Hanoi",
+    to_location="Da Nang",
+    date="2026-05-20",
+    passengers=1
+)
+
+# Accessing specific modes
+for train in results.trains:
+    print(train.train_number)
+
+# Utility methods
+print(results.summary())  # Best for LLM consumption
+cheapest = results.cheapest()
+```
+
+### Dynamic Location Resolution
+
+The SDK exposes methods to manually resolve locations if you aren't performing an immediate search.
+
+```python
+# Returns airport metadata including IATA code and internal location ID
+airport_info = await client.resolve_flight_airport_async("Noi Bai")
+
+# Returns train station metadata including station code
+station_info = await client.resolve_train_station_async("Cau Giay District")
 ```
 
 ---
 
-## 6. Response Data Samples
+## 6. Data Schema (Pydantic Models)
 
-### Train
+### TrainTicket
 
-```json
-{
-  "train_number": "SE9",
-  "min_price": 1055000,
-  "utilities": ["Air conditioning", "Power outlets"],
-  "cars": [{"car_number": "1", "car_type": "Soft Seat"}]
-}
-```
+| Field              | Type    | Description                                |
+| :----------------- | :------ | :----------------------------------------- |
+| `train_number`   | `str` | Vehicle identifier (e.g., SE1)             |
+| `min_price`      | `int` | Lowest available seat/sleeper price in VND |
+| `departure_time` | `str` | Departure time in HH:MM format             |
+| `arrival_time`   | `str` | Arrival time in HH:MM format               |
+| `seat_available` | `int` | Total number of seats currently available  |
 
-### Bus
+### FlightTicket
 
-```json
-{
-  "operator": { "name": "FUTA HA SON" },
-  "bus_type": "Limousine 34",
-  "rating": 4.8,
-  "policies": ["Refundable"]
-}
-```
+| Field             | Type    | Description                            |
+| :---------------- | :------ | :------------------------------------- |
+| `airline_name`  | `str` | Name of the airline carrier            |
+| `flight_number` | `str` | Carriers flight code (e.g., VJ123)     |
+| `final_price`   | `int` | Total price including taxes and fees   |
+| `baggage_info`  | `str` | Carry-on and checked luggage allowance |
 
-### Flight
+---
 
-```json
-{
-  "airline_name": "Bamboo Airways",
-  "airplane_name": "Airbus A320",
-  "baggage_info": "7kg carry-on | 10kg checked",
-  "policies": ["Refundable", "Changeable"]
-}
+## 7. Advanced Usage
+
+### Handling Token Expiration
+
+`TravelClient` automatically monitors token TTL. If a `401 Unauthorized` response is received, it will transparently refresh the token and retry the request without user intervention.
+
+### Logging Configuration
+
+For detailed monitoring, you can enable verbose mode or configure the standard logging library:
+
+```python
+import logging
+logging.basicConfig(level=logging.DEBUG)
+client = TravelClient(verbose=True)
 ```
 
 ---
 
-## License
+## 8. Development and Testing
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+The project uses `pytest` for all verification tests.
+
+```bash
+# Run all tests
+pytest tests/
+
+# Run specific location resolution tests
+python test_hierarchical.py
+```
+
+---
+
+## 9. License and Disclaimer
+
+### Disclaimer
+
+This is an **unofficial** SDK and is not affiliated with, endorsed by, or connected to Vexere, VNR (Vietnam Railways), or any specific airline. It utilizes public internal endpoints and is intended for educational and research purposes.
+
+### License
+
+This project is licensed under the [MIT License](LICENSE).
 
 Copyright (c) 2026 **Qhuy204**

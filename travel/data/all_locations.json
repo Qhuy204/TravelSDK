@@ -1,0 +1,1529 @@
+{
+  "provinces": [
+    {
+      "id": "1",
+      "name": "An Giang",
+      "code": "AGG",
+      "type": 3
+    },
+    {
+      "id": "3",
+      "name": "Bắc Giang",
+      "code": "BGG",
+      "type": 3
+    },
+    {
+      "id": "4",
+      "name": "Bắc Kạn",
+      "code": "BKN",
+      "type": 3
+    },
+    {
+      "id": "5",
+      "name": "Bạc Liêu",
+      "code": "BLU",
+      "type": 3
+    },
+    {
+      "id": "6",
+      "name": "Bắc Ninh",
+      "code": "BNH",
+      "type": 3
+    },
+    {
+      "id": "7",
+      "name": "Bến Tre",
+      "code": "BTE",
+      "type": 3
+    },
+    {
+      "id": "8",
+      "name": "Bình Định",
+      "code": "BDH",
+      "type": 3
+    },
+    {
+      "id": "9",
+      "name": "Bình Dương",
+      "code": "BDG",
+      "type": 3
+    },
+    {
+      "id": "10",
+      "name": "Bình Phước",
+      "code": "BPC",
+      "type": 3
+    },
+    {
+      "id": "11",
+      "name": "Bình Thuận",
+      "code": "BTN",
+      "type": 3
+    },
+    {
+      "id": "12",
+      "name": "Cà Mau",
+      "code": "CMU",
+      "type": 3
+    },
+    {
+      "id": "13",
+      "name": "Cần Thơ",
+      "code": "CTO",
+      "type": 3
+    },
+    {
+      "id": "14",
+      "name": "Cao Bằng",
+      "code": "CBG",
+      "type": 3
+    },
+    {
+      "id": "15",
+      "name": "Đà Nẵng",
+      "code": "DNA",
+      "type": 3
+    },
+    {
+      "id": "16",
+      "name": "Đắk Lắk",
+      "code": "DLK",
+      "type": 3
+    },
+    {
+      "id": "17",
+      "name": "Đắk Nông",
+      "code": "DNG",
+      "type": 3
+    },
+    {
+      "id": "18",
+      "name": "Điện Biên",
+      "code": "DBN",
+      "type": 3
+    },
+    {
+      "id": "19",
+      "name": "Đồng Nai",
+      "code": "DNI",
+      "type": 3
+    },
+    {
+      "id": "20",
+      "name": "Đồng Tháp",
+      "code": "DTP",
+      "type": 3
+    },
+    {
+      "id": "21",
+      "name": "Gia Lai",
+      "code": "GLI",
+      "type": 3
+    },
+    {
+      "id": "22",
+      "name": "Hà Giang",
+      "code": "HGG",
+      "type": 3
+    },
+    {
+      "id": "23",
+      "name": "Hà Nam",
+      "code": "HNM",
+      "type": 3
+    },
+    {
+      "id": "24",
+      "name": "Hà Nội",
+      "code": "HNI",
+      "type": 3
+    },
+    {
+      "id": "25",
+      "name": "Hà Tĩnh",
+      "code": "HTH",
+      "type": 3
+    },
+    {
+      "id": "26",
+      "name": "Hải Dương",
+      "code": "HDG",
+      "type": 3
+    },
+    {
+      "id": "27",
+      "name": "Hải Phòng",
+      "code": "HPG",
+      "type": 3
+    },
+    {
+      "id": "28",
+      "name": "Hậu Giang",
+      "code": "HGG",
+      "type": 3
+    },
+    {
+      "id": "30",
+      "name": "Hòa Bình",
+      "code": "HBH",
+      "type": 3
+    },
+    {
+      "id": "31",
+      "name": "Hưng Yên",
+      "code": "HYN",
+      "type": 3
+    },
+    {
+      "id": "32",
+      "name": "Khánh Hòa",
+      "code": "KHA",
+      "type": 3
+    },
+    {
+      "id": "33",
+      "name": "Kiên Giang",
+      "code": "KGG",
+      "type": 3
+    },
+    {
+      "id": "34",
+      "name": "Kon Tum",
+      "code": "KTM",
+      "type": 3
+    },
+    {
+      "id": "35",
+      "name": "Lai Châu",
+      "code": "LCU",
+      "type": 3
+    },
+    {
+      "id": "36",
+      "name": "Lâm Đồng",
+      "code": "LDG",
+      "type": 3
+    },
+    {
+      "id": "37",
+      "name": "Lạng Sơn",
+      "code": "LSN",
+      "type": 3
+    },
+    {
+      "id": "38",
+      "name": "Lào Cai",
+      "code": "LCI",
+      "type": 3
+    },
+    {
+      "id": "39",
+      "name": "Long An",
+      "code": "LAN",
+      "type": 3
+    },
+    {
+      "id": "40",
+      "name": "Nam Định",
+      "code": "NDH",
+      "type": 3
+    },
+    {
+      "id": "41",
+      "name": "Nghệ An",
+      "code": "NAN",
+      "type": 3
+    },
+    {
+      "id": "42",
+      "name": "Ninh Bình",
+      "code": "NBH",
+      "type": 3
+    },
+    {
+      "id": "43",
+      "name": "Ninh Thuận",
+      "code": "NTN",
+      "type": 3
+    },
+    {
+      "id": "44",
+      "name": "Phú Thọ",
+      "code": "PTO",
+      "type": 3
+    },
+    {
+      "id": "45",
+      "name": "Phú Yên",
+      "code": "PYN",
+      "type": 3
+    },
+    {
+      "id": "46",
+      "name": "Quảng Bình",
+      "code": "QBH",
+      "type": 3
+    },
+    {
+      "id": "47",
+      "name": "Quảng Nam",
+      "code": "QNM",
+      "type": 3
+    },
+    {
+      "id": "48",
+      "name": "Quảng Ngãi",
+      "code": "QNI",
+      "type": 3
+    },
+    {
+      "id": "49",
+      "name": "Quảng Ninh",
+      "code": "QNH",
+      "type": 3
+    },
+    {
+      "id": "50",
+      "name": "Quảng Trị",
+      "code": "QTI",
+      "type": 3
+    },
+    {
+      "id": "51",
+      "name": "Sóc Trăng",
+      "code": "STG",
+      "type": 3
+    },
+    {
+      "id": "52",
+      "name": "Sơn La",
+      "code": "SLA",
+      "type": 3
+    },
+    {
+      "id": "53",
+      "name": "Tây Ninh",
+      "code": "TNH",
+      "type": 3
+    },
+    {
+      "id": "54",
+      "name": "Thái Bình",
+      "code": "TBH",
+      "type": 3
+    },
+    {
+      "id": "55",
+      "name": "Thái Nguyên",
+      "code": "TNN",
+      "type": 3
+    },
+    {
+      "id": "56",
+      "name": "Thanh Hóa",
+      "code": "THA",
+      "type": 3
+    },
+    {
+      "id": "57",
+      "name": "Thừa Thiên Huế",
+      "code": "TTE",
+      "type": 3
+    },
+    {
+      "id": "58",
+      "name": "Tiền Giang",
+      "code": "TGG",
+      "type": 3
+    },
+    {
+      "id": "59",
+      "name": "Trà Vinh",
+      "code": "TVH",
+      "type": 3
+    },
+    {
+      "id": "60",
+      "name": "Tuyên Quang",
+      "code": "TQG",
+      "type": 3
+    },
+    {
+      "id": "61",
+      "name": "Vĩnh Long",
+      "code": "VLG",
+      "type": 3
+    },
+    {
+      "id": "62",
+      "name": "Vĩnh Phúc",
+      "code": "VPC",
+      "type": 3
+    },
+    {
+      "id": "63",
+      "name": "Yên Bái",
+      "code": "YBI",
+      "type": 3
+    }
+  ],
+  "districts": [],
+  "airports": [
+    {
+      "id": 135547,
+      "iata": "VCA",
+      "name": "Sân bay Cần Thơ",
+      "city": "Cần Thơ",
+      "province_id": "1"
+    },
+    {
+      "id": 28284,
+      "iata": "SGN",
+      "name": "Sân bay Tân Sơn Nhất",
+      "city": "Hồ Chí Minh",
+      "province_id": "1"
+    },
+    {
+      "id": 135551,
+      "iata": "HPH",
+      "name": "Sân bay Cát Bi",
+      "city": "Hải Phòng",
+      "province_id": "3"
+    },
+    {
+      "id": 102188,
+      "iata": "HAN",
+      "name": "Sân bay Nội Bài",
+      "city": "Hà Nội",
+      "province_id": "3"
+    },
+    {
+      "id": 135545,
+      "iata": "UIH",
+      "name": "Sân bay Phù Cát",
+      "city": "Qui Nhơn",
+      "province_id": "8"
+    },
+    {
+      "id": 135546,
+      "iata": "CAH",
+      "name": "Sân bay Cà Mau",
+      "city": "Ca Mau",
+      "province_id": "12"
+    },
+    {
+      "id": 135548,
+      "iata": "DAD",
+      "name": "Sân bay Đà Nẵng",
+      "city": "Đà Nẵng",
+      "province_id": "15"
+    },
+    {
+      "id": 133906,
+      "iata": "BMV",
+      "name": "Sân bay Buôn Ma Thuột",
+      "city": "Buôn Ma Thuột",
+      "province_id": "16"
+    },
+    {
+      "id": 135549,
+      "iata": "DIN",
+      "name": "Sân bay Điện Biên Phủ",
+      "city": "Điện Biên Phủ",
+      "province_id": "18"
+    },
+    {
+      "id": 135550,
+      "iata": "PXU",
+      "name": "Sân bay Pleiku",
+      "city": "PleiKu",
+      "province_id": "21"
+    },
+    {
+      "id": 135555,
+      "iata": "VII",
+      "name": "Sân bay Vinh",
+      "city": "Vinh",
+      "province_id": "25"
+    },
+    {
+      "id": 135557,
+      "iata": "VDH",
+      "name": "Sân bay Đồng Hới",
+      "city": "Quảng Bình",
+      "province_id": "25"
+    },
+    {
+      "id": 135552,
+      "iata": "CXR",
+      "name": "Sân bay Cam Ranh",
+      "city": "Nha Trang",
+      "province_id": "32"
+    },
+    {
+      "id": 135553,
+      "iata": "VKG",
+      "name": "Sân bay Rạch Giá",
+      "city": "Kiên Giang",
+      "province_id": "33"
+    },
+    {
+      "id": 112068,
+      "iata": "DLI",
+      "name": "Sân bay Liên Khương",
+      "city": "Đà Lạt",
+      "province_id": "36"
+    },
+    {
+      "id": 135558,
+      "iata": "THD",
+      "name": "Sân bay Thọ Xuân",
+      "city": "Thanh Hóa",
+      "province_id": "42"
+    },
+    {
+      "id": 135556,
+      "iata": "TBB",
+      "name": "Sân bay Tuy Hòa",
+      "city": "Phú Yên",
+      "province_id": "45"
+    },
+    {
+      "id": 135242,
+      "iata": "VCL",
+      "name": "Sân bay Chu Lai",
+      "city": "Quảng Nam",
+      "province_id": "47"
+    },
+    {
+      "id": 149325,
+      "iata": "VDO",
+      "name": "Sân bay Vân Đồn",
+      "city": "Quảng Ninh",
+      "province_id": "49"
+    },
+    {
+      "id": 135559,
+      "iata": "HUI",
+      "name": "Sân bay Phú Bài",
+      "city": "Huế",
+      "province_id": "50"
+    }
+  ],
+  "train_stations": [
+    {
+      "id": 3,
+      "code": "BAS",
+      "name": "Ga Bảo Sơn",
+      "province_id": "3"
+    },
+    {
+      "id": 77,
+      "code": "LMA",
+      "name": "Ga Lan Mẫu",
+      "province_id": "3"
+    },
+    {
+      "id": 60,
+      "code": "KEP",
+      "name": "Ga Kép",
+      "province_id": "3"
+    },
+    {
+      "id": 22,
+      "code": "CLY",
+      "name": "Ga Cẩm Lý",
+      "province_id": "3"
+    },
+    {
+      "id": 116,
+      "code": "PTR",
+      "name": "Ga Phố Tráng",
+      "province_id": "3"
+    },
+    {
+      "id": 7,
+      "code": "BGI",
+      "name": "Ga Bắc Giang",
+      "province_id": "3"
+    },
+    {
+      "id": 126,
+      "code": "SHO",
+      "name": "Ga Sen Hồ",
+      "province_id": "3"
+    },
+    {
+      "id": 11,
+      "code": "BNI",
+      "name": "Ga Bắc Ninh",
+      "province_id": "6"
+    },
+    {
+      "id": 135,
+      "code": "TCA",
+      "name": "Ga Thị Cầu",
+      "province_id": "6"
+    },
+    {
+      "id": 152,
+      "code": "TSO",
+      "name": "Ga Từ Sơn",
+      "province_id": "6"
+    },
+    {
+      "id": 73,
+      "code": "LIM",
+      "name": "Ga Lim",
+      "province_id": "6"
+    },
+    {
+      "id": 159,
+      "code": "VPH",
+      "name": "Ga Văn Phú",
+      "province_id": "8"
+    },
+    {
+      "id": 12,
+      "code": "BSN",
+      "name": "Ga Bồng Sơn",
+      "province_id": "8"
+    },
+    {
+      "id": 43,
+      "code": "DTR",
+      "name": "Ga Diêu Trì",
+      "province_id": "8"
+    },
+    {
+      "id": 122,
+      "code": "QNH",
+      "name": "Ga Quy Nhơn",
+      "province_id": "8"
+    },
+    {
+      "id": 155,
+      "code": "VCA",
+      "name": "Ga Vân Canh",
+      "province_id": "8"
+    },
+    {
+      "id": 32,
+      "code": "DIA",
+      "name": "Ga Dĩ An",
+      "province_id": "9"
+    },
+    {
+      "id": 131,
+      "code": "STH",
+      "name": "Ga Sóng Thần",
+      "province_id": "9"
+    },
+    {
+      "id": 88,
+      "code": "MLA",
+      "name": "Ga Ma Lâm",
+      "province_id": "11"
+    },
+    {
+      "id": 90,
+      "code": "MMA",
+      "name": "Ga Bình Thuận",
+      "province_id": "11"
+    },
+    {
+      "id": 114,
+      "code": "PTH",
+      "name": "Ga Phan Thiết",
+      "province_id": "11"
+    },
+    {
+      "id": 127,
+      "code": "SKI",
+      "name": "Ga Suối Kiết",
+      "province_id": "11"
+    },
+    {
+      "id": 129,
+      "code": "SMA",
+      "name": "Ga Sông Mao",
+      "province_id": "11"
+    },
+    {
+      "id": 46,
+      "code": "GHU",
+      "name": "Ga Gia Huynh",
+      "province_id": "11"
+    },
+    {
+      "id": 61,
+      "code": "KLI",
+      "name": "Ga Kim Liên",
+      "province_id": "15"
+    },
+    {
+      "id": 37,
+      "code": "DNA",
+      "name": "Ga Đà Nẵng",
+      "province_id": "15"
+    },
+    {
+      "id": 75,
+      "code": "LKH",
+      "name": "Ga Long Khánh",
+      "province_id": "19"
+    },
+    {
+      "id": 49,
+      "code": "GRA",
+      "name": "Ga Gia Ray",
+      "province_id": "19"
+    },
+    {
+      "id": 9,
+      "code": "BHO",
+      "name": "Ga Biên Hòa",
+      "province_id": "19"
+    },
+    {
+      "id": 111,
+      "code": "PLY",
+      "name": "Ga Phủ Lý",
+      "province_id": "23"
+    },
+    {
+      "id": 103,
+      "code": "PDI",
+      "name": "Ga Phú Diễn",
+      "province_id": "24"
+    },
+    {
+      "id": 45,
+      "code": "GBA",
+      "name": "Ga Giáp Bát",
+      "province_id": "24"
+    },
+    {
+      "id": 156,
+      "code": "VDI",
+      "name": "Ga Văn Điển",
+      "province_id": "24"
+    },
+    {
+      "id": 53,
+      "code": "HNO",
+      "name": "Ga Hà Nội",
+      "province_id": "24"
+    },
+    {
+      "id": 66,
+      "code": "LBI",
+      "name": "Ga Long Biên",
+      "province_id": "24"
+    },
+    {
+      "id": 48,
+      "code": "GLA",
+      "name": "Ga Gia Lâm",
+      "province_id": "24"
+    },
+    {
+      "id": 147,
+      "code": "TLI",
+      "name": "Ga Thạch Lỗi",
+      "province_id": "24"
+    },
+    {
+      "id": 26,
+      "code": "DAN",
+      "name": "Ga Đông Anh",
+      "province_id": "24"
+    },
+    {
+      "id": 21,
+      "code": "CLO",
+      "name": "Ga Cổ Loa",
+      "province_id": "24"
+    },
+    {
+      "id": 171,
+      "code": "YVI",
+      "name": "Ga Yên Viên",
+      "province_id": "24"
+    },
+    {
+      "id": 27,
+      "code": "DAP",
+      "name": "Ga Đa Phúc",
+      "province_id": "24"
+    },
+    {
+      "id": 137,
+      "code": "TGI",
+      "name": "Ga Trung Giã",
+      "province_id": "24"
+    },
+    {
+      "id": 112,
+      "code": "PMO",
+      "name": "Ga Phường Mỗ",
+      "province_id": "25"
+    },
+    {
+      "id": 19,
+      "code": "CLE",
+      "name": "Ga Chu Lễ",
+      "province_id": "25"
+    },
+    {
+      "id": 148,
+      "code": "TLU",
+      "name": "Ga Thanh Luyện",
+      "province_id": "25"
+    },
+    {
+      "id": 54,
+      "code": "HOD",
+      "name": "Ga Hòa Duyệt",
+      "province_id": "25"
+    },
+    {
+      "id": 56,
+      "code": "HPO",
+      "name": "Ga Hương Phố",
+      "province_id": "25"
+    },
+    {
+      "id": 167,
+      "code": "YDU",
+      "name": "Ga Yên Duệ",
+      "province_id": "25"
+    },
+    {
+      "id": 44,
+      "code": "DUL",
+      "name": "Ga Đức Lạc",
+      "province_id": "25"
+    },
+    {
+      "id": 118,
+      "code": "PUT",
+      "name": "Ga Phúc Trạch",
+      "province_id": "25"
+    },
+    {
+      "id": 170,
+      "code": "YTR",
+      "name": "Ga Yên Trung",
+      "province_id": "25"
+    },
+    {
+      "id": 99,
+      "code": "NSO",
+      "name": "Ga Ngân Sơn",
+      "province_id": "25"
+    },
+    {
+      "id": 64,
+      "code": "LAK",
+      "name": "Ga La Khê",
+      "province_id": "25"
+    },
+    {
+      "id": 50,
+      "code": "HDU",
+      "name": "Ga Hải Dương",
+      "province_id": "26"
+    },
+    {
+      "id": 113,
+      "code": "PTA",
+      "name": "Ga Phú Thái",
+      "province_id": "26"
+    },
+    {
+      "id": 16,
+      "code": "CGA",
+      "name": "Ga Cẩm Giàng",
+      "province_id": "26"
+    },
+    {
+      "id": 20,
+      "code": "CLI",
+      "name": "Ga Chí Linh",
+      "province_id": "26"
+    },
+    {
+      "id": 55,
+      "code": "HPH",
+      "name": "Ga Hải Phòng",
+      "province_id": "27"
+    },
+    {
+      "id": 139,
+      "code": "THL",
+      "name": "Ga Thượng Lý",
+      "province_id": "27"
+    },
+    {
+      "id": 63,
+      "code": "LAG",
+      "name": "Ga Lạc Giao",
+      "province_id": "31"
+    },
+    {
+      "id": 80,
+      "code": "LUS",
+      "name": "Ga Lương Sơn",
+      "province_id": "32"
+    },
+    {
+      "id": 101,
+      "code": "NTR",
+      "name": "Ga Nha Trang",
+      "province_id": "32"
+    },
+    {
+      "id": 95,
+      "code": "NHO",
+      "name": "Ga Ninh Hoà",
+      "province_id": "32"
+    },
+    {
+      "id": 92,
+      "code": "NBA",
+      "name": "Ga Ngã Ba",
+      "province_id": "32"
+    },
+    {
+      "id": 47,
+      "code": "GIA",
+      "name": "Ga Giã",
+      "province_id": "32"
+    },
+    {
+      "id": 134,
+      "code": "TBO",
+      "name": "Ga Tu Bông",
+      "province_id": "32"
+    },
+    {
+      "id": 33,
+      "code": "DLA",
+      "name": "Ga Ðại Lãnh",
+      "province_id": "32"
+    },
+    {
+      "id": 35,
+      "code": "DAT",
+      "name": "Ga Đà Lạt",
+      "province_id": "36"
+    },
+    {
+      "id": 149,
+      "code": "TMA",
+      "name": "Ga Trại Mát",
+      "province_id": "36"
+    },
+    {
+      "id": 78,
+      "code": "LSO",
+      "name": "Ga Lạng Sơn",
+      "province_id": "37"
+    },
+    {
+      "id": 29,
+      "code": "DDA",
+      "name": "Ga Đồng Đăng",
+      "province_id": "37"
+    },
+    {
+      "id": 14,
+      "code": "BTH",
+      "name": "Ga Bản Thí",
+      "province_id": "37"
+    },
+    {
+      "id": 4,
+      "code": "BAT",
+      "name": "Ga Bắc Thủy",
+      "province_id": "37"
+    },
+    {
+      "id": 36,
+      "code": "DMO",
+      "name": "Ga Đồng Mỏ",
+      "province_id": "37"
+    },
+    {
+      "id": 18,
+      "code": "CLA",
+      "name": "Ga Chi Lăng",
+      "province_id": "37"
+    },
+    {
+      "id": 130,
+      "code": "SOH",
+      "name": "Ga Sông Hóa",
+      "province_id": "37"
+    },
+    {
+      "id": 10,
+      "code": "BLE",
+      "name": "Ga Bắc Lệ",
+      "province_id": "37"
+    },
+    {
+      "id": 119,
+      "code": "PVI",
+      "name": "Ga Phố Vị",
+      "province_id": "37"
+    },
+    {
+      "id": 163,
+      "code": "VXO",
+      "name": "Ga Voi Xô",
+      "province_id": "37"
+    },
+    {
+      "id": 151,
+      "code": "TNI",
+      "name": "Ga Thái Niên",
+      "province_id": "38"
+    },
+    {
+      "id": 110,
+      "code": "PLU",
+      "name": "Ga Phố Lu",
+      "province_id": "38"
+    },
+    {
+      "id": 67,
+      "code": "LCA",
+      "name": "Ga Lào Cai",
+      "province_id": "38"
+    },
+    {
+      "id": 153,
+      "code": "TVA",
+      "name": "Ga Thái Văn",
+      "province_id": "38"
+    },
+    {
+      "id": 8,
+      "code": "BHA",
+      "name": "Ga Bảo Hà",
+      "province_id": "38"
+    },
+    {
+      "id": 94,
+      "code": "NDI",
+      "name": "Ga Nam Định",
+      "province_id": "40"
+    },
+    {
+      "id": 25,
+      "code": "CSY",
+      "name": "Ga Chợ Sy",
+      "province_id": "41"
+    },
+    {
+      "id": 17,
+      "code": "CGI",
+      "name": "Ga Cầu Giát",
+      "province_id": "41"
+    },
+    {
+      "id": 158,
+      "code": "VIN",
+      "name": "Ga Vinh",
+      "province_id": "41"
+    },
+    {
+      "id": 172,
+      "code": "YXU",
+      "name": "Ga Yên Xuân",
+      "province_id": "41"
+    },
+    {
+      "id": 93,
+      "code": "NBI",
+      "name": "Ga Ninh Bình",
+      "province_id": "42"
+    },
+    {
+      "id": 136,
+      "code": "TCH",
+      "name": "Ga Tháp Chàm",
+      "province_id": "43"
+    },
+    {
+      "id": 23,
+      "code": "CNA",
+      "name": "Ga Cà Ná",
+      "province_id": "43"
+    },
+    {
+      "id": 15,
+      "code": "CCH",
+      "name": "Ga Chí Chủ",
+      "province_id": "44"
+    },
+    {
+      "id": 115,
+      "code": "PTO",
+      "name": "Ga Phú Thọ",
+      "province_id": "44"
+    },
+    {
+      "id": 142,
+      "code": "TKE",
+      "name": "Ga Tiên Kiên",
+      "province_id": "44"
+    },
+    {
+      "id": 157,
+      "code": "VEN",
+      "name": "Ga Vũ Ẻn",
+      "province_id": "44"
+    },
+    {
+      "id": 104,
+      "code": "PDU",
+      "name": "Ga Phủ Đức",
+      "province_id": "44"
+    },
+    {
+      "id": 2,
+      "code": "ATH",
+      "name": "Ga Ấm Thượng",
+      "province_id": "44"
+    },
+    {
+      "id": 161,
+      "code": "VTR",
+      "name": "Ga Việt Trì",
+      "province_id": "44"
+    },
+    {
+      "id": 42,
+      "code": "DTH",
+      "name": "Ga Đoan Thượng",
+      "province_id": "44"
+    },
+    {
+      "id": 72,
+      "code": "LHA",
+      "name": "Ga La Hai",
+      "province_id": "45"
+    },
+    {
+      "id": 138,
+      "code": "THA",
+      "name": "Ga Tuy Hoà",
+      "province_id": "45"
+    },
+    {
+      "id": 41,
+      "code": "DTA",
+      "name": "Ga Ðông Tác",
+      "province_id": "45"
+    },
+    {
+      "id": 109,
+      "code": "PLA",
+      "name": "Ga Phước Lãnh",
+      "province_id": "45"
+    },
+    {
+      "id": 105,
+      "code": "PHI",
+      "name": "Ga Phú Hiệp",
+      "province_id": "45"
+    },
+    {
+      "id": 31,
+      "code": "DHO",
+      "name": "Ga Đồng Hới",
+      "province_id": "46"
+    },
+    {
+      "id": 76,
+      "code": "LKY",
+      "name": "Ga Lệ Kỳ",
+      "province_id": "46"
+    },
+    {
+      "id": 117,
+      "code": "PTU",
+      "name": "Ga Phúc Tự",
+      "province_id": "46"
+    },
+    {
+      "id": 51,
+      "code": "HLA",
+      "name": "Ga Hoàn Lão",
+      "province_id": "46"
+    },
+    {
+      "id": 69,
+      "code": "LDA",
+      "name": "Ga Long Đại",
+      "province_id": "46"
+    },
+    {
+      "id": 146,
+      "code": "TLC",
+      "name": "Ga Thọ Lộc",
+      "province_id": "46"
+    },
+    {
+      "id": 86,
+      "code": "MDU",
+      "name": "Ga Mỹ Đức",
+      "province_id": "46"
+    },
+    {
+      "id": 89,
+      "code": "MLE",
+      "name": "Ga Minh Lệ",
+      "province_id": "46"
+    },
+    {
+      "id": 106,
+      "code": "PHO",
+      "name": "Ga Phú Hòa",
+      "province_id": "46"
+    },
+    {
+      "id": 91,
+      "code": "MTR",
+      "name": "Ga Mỹ Trạch",
+      "province_id": "46"
+    },
+    {
+      "id": 145,
+      "code": "TLA",
+      "name": "Ga Thượng Lâm",
+      "province_id": "46"
+    },
+    {
+      "id": 70,
+      "code": "LES",
+      "name": "Ga Lệ Sơn",
+      "province_id": "46"
+    },
+    {
+      "id": 65,
+      "code": "LAS",
+      "name": "Ga Lạc Sơn",
+      "province_id": "46"
+    },
+    {
+      "id": 98,
+      "code": "NLA",
+      "name": "Ga Ngọc Lâm",
+      "province_id": "46"
+    },
+    {
+      "id": 34,
+      "code": "DLE",
+      "name": "Ga Đồng Lê",
+      "province_id": "46"
+    },
+    {
+      "id": 62,
+      "code": "KLU",
+      "name": "Ga Kim Lũ",
+      "province_id": "46"
+    },
+    {
+      "id": 28,
+      "code": "DCH",
+      "name": "Ga Đồng Chuối",
+      "province_id": "46"
+    },
+    {
+      "id": 133,
+      "code": "TAP",
+      "name": "Ga Tân Ấp",
+      "province_id": "46"
+    },
+    {
+      "id": 84,
+      "code": "MCA",
+      "name": "Ga Minh Cầm",
+      "province_id": "46"
+    },
+    {
+      "id": 102,
+      "code": "PCG",
+      "name": "Ga Phú Cang",
+      "province_id": "47"
+    },
+    {
+      "id": 143,
+      "code": "TKI",
+      "name": "Ga Trà Kiệu",
+      "province_id": "47"
+    },
+    {
+      "id": 144,
+      "code": "TKY",
+      "name": "Ga Tam Kỳ",
+      "province_id": "47"
+    },
+    {
+      "id": 100,
+      "code": "NTH",
+      "name": "Ga Núi Thành",
+      "province_id": "47"
+    },
+    {
+      "id": 121,
+      "code": "QNG",
+      "name": "Ga Quảng Ngãi",
+      "province_id": "48"
+    },
+    {
+      "id": 39,
+      "code": "DPH",
+      "name": "Ga Đức Phổ",
+      "province_id": "48"
+    },
+    {
+      "id": 52,
+      "code": "HLO",
+      "name": "Ga Hạ Long",
+      "province_id": "49"
+    },
+    {
+      "id": 166,
+      "code": "YCU",
+      "name": "Ga Yên Cư",
+      "province_id": "49"
+    },
+    {
+      "id": 97,
+      "code": "NKH",
+      "name": "Ga Nam Khê",
+      "province_id": "49"
+    },
+    {
+      "id": 5,
+      "code": "BCO",
+      "name": "Ga Bàn Cờ",
+      "province_id": "49"
+    },
+    {
+      "id": 154,
+      "code": "UBI",
+      "name": "Ga Uông Bí",
+      "province_id": "49"
+    },
+    {
+      "id": 168,
+      "code": "YED",
+      "name": "Ga Yên Dưỡng",
+      "province_id": "49"
+    },
+    {
+      "id": 83,
+      "code": "MAK",
+      "name": "Ga Mạo Khê",
+      "province_id": "49"
+    },
+    {
+      "id": 38,
+      "code": "DOT",
+      "name": "Ga Ðông Triều",
+      "province_id": "49"
+    },
+    {
+      "id": 30,
+      "code": "DHA",
+      "name": "Ga Đông Hà",
+      "province_id": "50"
+    },
+    {
+      "id": 58,
+      "code": "HTH",
+      "name": "Ga Hà Thanh",
+      "province_id": "50"
+    },
+    {
+      "id": 123,
+      "code": "QTI",
+      "name": "Ga Quảng Trị",
+      "province_id": "50"
+    },
+    {
+      "id": 132,
+      "code": "TAN",
+      "name": "Ga Tiên An",
+      "province_id": "50"
+    },
+    {
+      "id": 40,
+      "code": "DSA",
+      "name": "Ga Diên Sanh",
+      "province_id": "50"
+    },
+    {
+      "id": 128,
+      "code": "SLU",
+      "name": "Ga Sa Lung",
+      "province_id": "50"
+    },
+    {
+      "id": 85,
+      "code": "MCH",
+      "name": "Ga Mỹ Chánh",
+      "province_id": "50"
+    },
+    {
+      "id": 160,
+      "code": "VTH",
+      "name": "Ga Vĩnh Thủy",
+      "province_id": "50"
+    },
+    {
+      "id": 124,
+      "code": "QTR",
+      "name": "Ga Quán Triều",
+      "province_id": "55"
+    },
+    {
+      "id": 150,
+      "code": "TNG",
+      "name": "Ga Thái Nguyên",
+      "province_id": "55"
+    },
+    {
+      "id": 81,
+      "code": "LXA",
+      "name": "Ga Lưu Xá",
+      "province_id": "55"
+    },
+    {
+      "id": 108,
+      "code": "PHY",
+      "name": "Ga Phổ Yên",
+      "province_id": "55"
+    },
+    {
+      "id": 169,
+      "code": "YET",
+      "name": "Ga Yên Trạch",
+      "province_id": "55"
+    },
+    {
+      "id": 140,
+      "code": "THO",
+      "name": "Ga Thanh Hóa",
+      "province_id": "56"
+    },
+    {
+      "id": 87,
+      "code": "MKH",
+      "name": "Ga Minh Khôi",
+      "province_id": "56"
+    },
+    {
+      "id": 13,
+      "code": "BSO",
+      "name": "Ga Bỉm Sơn",
+      "province_id": "56"
+    },
+    {
+      "id": 59,
+      "code": "HUE",
+      "name": "Ga Huế",
+      "province_id": "57"
+    },
+    {
+      "id": 162,
+      "code": "VXA",
+      "name": "Ga Văn Xá",
+      "province_id": "57"
+    },
+    {
+      "id": 57,
+      "code": "HSY",
+      "name": "Ga Hiền Sỹ",
+      "province_id": "57"
+    },
+    {
+      "id": 68,
+      "code": "LCO",
+      "name": "Ga Lăng Cô",
+      "province_id": "57"
+    },
+    {
+      "id": 107,
+      "code": "PHR",
+      "name": "Ga Phò Trạch",
+      "province_id": "57"
+    },
+    {
+      "id": 164,
+      "code": "VYE",
+      "name": "Ga Vĩnh Yên",
+      "province_id": "62"
+    },
+    {
+      "id": 120,
+      "code": "PYE",
+      "name": "Ga Phúc Yên",
+      "province_id": "62"
+    },
+    {
+      "id": 165,
+      "code": "YBA",
+      "name": "Ga Yên Bái",
+      "province_id": "63"
+    },
+    {
+      "id": 24,
+      "code": "CPH",
+      "name": "Ga Cổ Phúc",
+      "province_id": "63"
+    },
+    {
+      "id": 96,
+      "code": "NHP",
+      "name": "Ga Ngòi Hóp",
+      "province_id": "63"
+    },
+    {
+      "id": 82,
+      "code": "MAA",
+      "name": "Ga Mậu A",
+      "province_id": "63"
+    },
+    {
+      "id": 141,
+      "code": "THU",
+      "name": "Ga Trái Hút",
+      "province_id": "63"
+    },
+    {
+      "id": 71,
+      "code": "LGI",
+      "name": "Ga Lâm Giang",
+      "province_id": "63"
+    },
+    {
+      "id": 74,
+      "code": "LKA",
+      "name": "Ga Lang Khay",
+      "province_id": "63"
+    },
+    {
+      "id": 79,
+      "code": "LTH",
+      "name": "Ga Lang Thíp",
+      "province_id": "63"
+    }
+  ]
+}

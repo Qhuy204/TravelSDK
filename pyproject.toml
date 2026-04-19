@@ -22,9 +22,15 @@ dependencies = [
     "pydantic>=2.0.0",
 ]
 
+[project.scripts]
+travel-sdk = "travel.cli:main"
+
 [tool.setuptools.packages.find]
 include = ["travel*"]
 exclude = ["scratch*", "tests*", "examples*"]
+
+[tool.setuptools.package-data]
+travel = ["data/*.json"]
 
 [project.optional-dependencies]
 dev = [
